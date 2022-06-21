@@ -92,6 +92,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "page_view_indicators",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/page_view_indicators-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
@@ -152,7 +158,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-06-21T13:44:10.606798Z",
+  "generated": "2022-06-21T20:36:55.560453Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }
