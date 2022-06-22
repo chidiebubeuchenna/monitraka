@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/view/screens/on_board_screen.dart';
+import 'package:monitraka/view/screens/register/letsgo_screen.dart';
+import 'package:monitraka/view/screens/register/login_screen.dart';
+import 'package:monitraka/view/screens/register/signup_screen.dart';
 import 'package:monitraka/view/screens/splash_screen.dart';
 
 void main() {
@@ -14,7 +18,14 @@ class Monitraka extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
       title: 'Monitraka',
-      home: const SplashScreen(),
+      initialRoute: SplashScreen.id,
+      routes: {
+        SplashScreen.id: (context) => const SplashScreen(),
+        OnBoarding.id: (context) => const OnBoarding(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        SignupScreen.id: (context) => const SignupScreen(),
+        LetsGoScreen.id: (context) => const LetsGoScreen()
+      },
     );
   }
 }
