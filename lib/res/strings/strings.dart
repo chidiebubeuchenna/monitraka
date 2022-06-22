@@ -1,9 +1,7 @@
 class RegStrings {
   //Common Strings
-  String get noAccount => 'Don’t have an account?';
-  String get haveAccount => 'Already have an account?';
-  String get signup => ' Sign up';
-  String get login => ' Log in';
+  String get noAccount => 'Don’t have an account? ';
+  String get haveAccount => 'Already have an account? ';
   String get forgotPassword => 'Forgot Password';
 
   //Login
