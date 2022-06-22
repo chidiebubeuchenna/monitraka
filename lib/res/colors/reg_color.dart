@@ -7,13 +7,10 @@ class RegColor extends BaseColors {
   Color get cGreen => const Color(0xFF136D31);
   @override
   Color get cWhite => const Color(0xFFFFFFFF);
-  //Texts
   @override
-  Color get primaryText => cGreen;
-  @override
-  Color get secondaryText => const Color(0xFF000000);
-  Color get rgText =>
-      const Color(0x99000000); //Black @ 60% for sub text in registration pages
+  Color get cBlack => const Color(0xFF000000);
+
+  Color get rgText => const Color(0x99000000); //Black @ 60%
   Color get redText => const Color(0xFFEF2626);
   //TextField
   @override
@@ -24,15 +21,7 @@ class RegColor extends BaseColors {
   Color get fillColor => const Color(0x40136D31); // Green @ 25%
   //Button
   @override
-  Color get bgGreen => cGreen;
-  @override
-  Color get bgWhite => cWhite;
-  @override
   Color get bgNeutral => const Color(0x4DB7B7B7); //Neutral @ 40%
-  @override
-  Color get fwGreen => cGreen;
-  @override
-  Color get fwWhite => cWhite;
   @override
   Color get fwBlack => const Color(0xFF292D32);
 }
