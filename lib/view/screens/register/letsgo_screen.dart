@@ -30,6 +30,15 @@ class _LetsGoScreenState extends State<LetsGoScreen> {
             padding: const EdgeInsets.all(24.0),
             child: Column(
               children: <Widget>[
+                SizedBox(height: 450),
+                Row(children: <Widget>[
+                  Align(alignment: AlignmentDirectional.left,//this isn't correct in the code, but for some reason it doesn't want to move left
+                     child: Image.asset('assets/images/1103_confetti-outline-2.gif', width: 155,height: 155,fit: BoxFit.contain,)),
+                  Align(alignment: AlignmentDirectional.bottomCenter, child: Image.asset('assets/images/1103_confetti-outline-5.gif', width: 113,height: 113,fit: BoxFit.contain,)),
+                  Align(alignment: AlignmentDirectional.right, //this needs to move to the right too
+                      child: Image.asset('assets/images/1103_confetti-outline-3.gif', width: 155,height: 155,fit: BoxFit.contain,)),
+                  Align(alignment: AlignmentDirectional.bottomEnd, child: Image.asset('assets/images/1103_confetti-outline-4.gif', width: 91,height: 91,fit: BoxFit.contain,)),
+                ],),
                 const SizedBox(height: 550),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
