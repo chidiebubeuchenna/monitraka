@@ -36,6 +36,7 @@ class AppTextField extends StatelessWidget {
             controller: controller,
             obscureText: obscureText,
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(left: 20),
               hintText: hint,
               filled: true,
               fillColor: Resources.color.fillColor,

@@ -9,52 +9,80 @@ class DropDown extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDown> {
-  late int selectedRadio;
-  late int selectedRadioTile;
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(value: "USA", child: Text("USA")),
-      const DropdownMenuItem(value: "Canada", child: Text("Canada")),
-      const DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
-      const DropdownMenuItem(value: "England", child: Text("England")),
+  final bool isClicked = false;
+  options() {
+    List<String> items = [
+      'WhatsApp',
+      'Twitter',
+      'Instagram',
+      'A friend',
+      'Our team'
     ];
-    return menuItems;
-  }
-
-  RadioListTile item(int value, int groupValue, String title) {
-    return RadioListTile(
-      value: value,
-      groupValue: groupValue,
-      onChanged: (x) {
-        print('From: $title');
-        selectedTile(x);
-      },
-      title: Text(
-        title,
-        style: TextStyle(
-            color: Resources.color.hintText,
-            fontWeight: FontWeight.w500,
-            fontSize: 16),
+    return Container(
+      constraints: BoxConstraints(maxWidth: 374),
+      height: 200,
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(items[index]),
+          );
+        },
       ),
     );
   }
 
-  selectedTile(int val) {
-    setState(() {
-      selectedRadio = val;
-      selectedRadioTile = val;
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    selectedRadio = 0;
-    selectedRadioTile = 0;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField(items: dropdownItems, onChanged: (x) {});
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text('How did you hear about us? ',
+                style: TextStyle(
+                    color: Resources.color.headerText,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14)),
+            Text(
+              '(Optional)',
+              style: TextStyle(
+                  color: Resources.color.redText,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14),
+            )
+          ],
+        ),
+        const SizedBox(height: 15),
+        Container(
+          constraints: const BoxConstraints(maxWidth: 374),
+          height: 50,
+          padding: const EdgeInsets.only(left: 20),
+          decoration: BoxDecoration(
+            color: Resources.color.fillColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Select',
+                style: TextStyle(
+                    color: Resources.color.hintText,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                  onPressed: () => options(),
+                  icon: Icon(Icons.keyboard_arrow_down,
+                      color: Resources.color.hintText),
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }

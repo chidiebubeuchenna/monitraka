@@ -81,8 +81,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 obscureText: true,
               ),
               const SizedBox(height: 16),
-              const DropDown(),
-              const SizedBox(height: 16),
+              DropDown(),
+              const SizedBox(height: 32),
               Button(
                   title: 'Create Account',
                   textColor: Resources.color.cWhite,
@@ -101,19 +101,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         fontSize: 12),
                   ),
                   InkWell(
-                      onTap: () => Navigator.pushNamed(context, LoginScreen.id),
-                      child: Text(
-                        Resources.rString.lTitle,
-                        style: TextStyle(
-                            color: Resources.color.cGreen,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Resources.color.cGreen,
-                            decorationThickness: 3,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12),
-                      ))
+                    onTap: () => Navigator.pushNamed(context, LoginScreen.id),
+                    child: Text(
+                      Resources.rString.lTitle,
+                      style: TextStyle(
+                          color: Resources.color.cGreen,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Resources.color.cGreen,
+                          decorationThickness: 3,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12),
+                    ),
+                  )
                 ],
-              )
+              ),
+              const SizedBox(height: 30),
             ],
           ),
         ),
