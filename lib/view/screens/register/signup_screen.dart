@@ -82,7 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 16),
               DropDown(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 32),
               Button(
                   title: 'Create Account',
                   textColor: Resources.color.cWhite,
