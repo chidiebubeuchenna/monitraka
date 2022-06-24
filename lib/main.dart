@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monitraka/res/res.dart';
 import 'package:monitraka/routes.dart';
-import 'package:monitraka/view/screens/splash_screen.dart';
+import 'package:monitraka/views/screens/splash_screen.dart';
 
 void main() {
   runApp(const Monitraka());
