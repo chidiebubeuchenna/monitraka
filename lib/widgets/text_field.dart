@@ -30,12 +30,13 @@ class AppTextField extends StatelessWidget {
         ),
         const SizedBox(height: 15),
         ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 374),
+          constraints: const BoxConstraints(maxWidth: 380),
           child: TextFormField(
             validator: validator,
             controller: controller,
             obscureText: obscureText,
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(left: 20),
               hintText: hint,
               filled: true,
               fillColor: Resources.color.fillColor,
