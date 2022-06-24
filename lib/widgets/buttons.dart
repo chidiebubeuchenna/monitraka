@@ -19,6 +19,7 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       onPressed: btnAction,
       style: ElevatedButton.styleFrom(
+        elevation: 0,
         primary: bgColor,
         textStyle: TextStyle(
             color: textColor, fontWeight: FontWeight.w600, fontSize: 16),

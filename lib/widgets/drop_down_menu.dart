@@ -9,23 +9,24 @@ class DropDown extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDown> {
-  final bool isClicked = false;
+  bool isClicked = false;
+  final List<String> _items = [
+    'WhatsApp',
+    'Twitter',
+    'Instagram',
+    'A friend',
+    'Our team'
+  ];
+
   options() {
-    List<String> items = [
-      'WhatsApp',
-      'Twitter',
-      'Instagram',
-      'A friend',
-      'Our team'
-    ];
     return Container(
-      constraints: BoxConstraints(maxWidth: 374),
+      constraints: const BoxConstraints(maxWidth: 374),
       height: 200,
       child: ListView.builder(
-        itemCount: items.length,
+        itemCount: _items.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(items[index]),
+            title: Text(_items[index]),
           );
         },
       ),
@@ -74,7 +75,12 @@ class _DropDownState extends State<DropDown> {
               Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: IconButton(
-                  onPressed: () => options(),
+                  onPressed: () {
+                    setState(() {
+                      isClicked = true;
+                      options();
+                    });
+                  },
                   icon: Icon(Icons.keyboard_arrow_down,
                       color: Resources.color.hintText),
                 ),

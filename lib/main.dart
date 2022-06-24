@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/res/res.dart';
 import 'package:monitraka/routes.dart';
 import 'package:monitraka/view/screens/splash_screen.dart';
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/view/screens/password_correction/forgot_screen.dart';
 import 'package:monitraka/view/screens/register/signup_screen.dart';
+import 'package:monitraka/widgets/app_bar.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/text_field.dart';
 
@@ -14,9 +16,13 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final bool checkedBox = false;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // appBar: appBar(() => Navigator.popAndPushNamed(context, SignupScreen.id),
         body: SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -110,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: TextDecoration.underline,
                           decorationColor: Resources.color.cGreen,
                           decorationThickness: 3,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600),
                     ),
                   )
@@ -124,15 +131,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       Icon(Icons.fingerprint,
                           color: Resources.color.cGreen, size: 80),
                       const SizedBox(height: 20),
-                      Text(
-                        Resources.rString.fTitle,
-                        style: TextStyle(
-                            color: Resources.color.cGreen,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.green,
-                            decorationThickness: 3,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600),
+                      InkWell(
+                        onTap: () =>
+                            Navigator.pushNamed(context, ForgotPassword.id),
+                        child: Text(
+                          Resources.rString.fTitle,
+                          style: TextStyle(
+                              color: Resources.color.cGreen,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.green,
+                              decorationThickness: 3,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ],
                   ),
