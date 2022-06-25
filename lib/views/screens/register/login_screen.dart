@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/views/screens/home_screen.dart';
 import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
 import 'package:monitraka/views/screens/register/signup_screen.dart';
 import 'package:monitraka/widgets/buttons.dart';
@@ -85,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: Resources.rString.lTitle,
                 bgColor: Resources.color.cGreen,
                 textColor: Resources.color.cWhite,
-                btnAction: () => Navigator.pushNamed(context, ''),
+                btnAction: () => Navigator.pushNamed(context, HomeScreen.id),
               ),
               const SizedBox(height: 20),
               Row(

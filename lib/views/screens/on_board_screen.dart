@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/views/screens/home_screen.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:page_view_indicators/page_view_indicators.dart';
 import 'package:monitraka/res/res.dart';
@@ -48,7 +49,7 @@ class _OnBoardingState extends State<OnBoarding> {
           const SizedBox(width: 30),
           TextButton(
             onPressed: () =>
-                Navigator.pushReplacementNamed(context, LoginScreen.id),
+                Navigator.pushReplacementNamed(context, HomeScreen.id),
             child: Text(
               'Skip',
               style: TextStyle(
@@ -64,9 +65,10 @@ class _OnBoardingState extends State<OnBoarding> {
             currentPageNotifier: pageNotifier,
             itemCount: 4,
           ),
-          const SizedBox(width: 70),
+          const SizedBox(width: 38),
           TextButton(
             onPressed: () {
+              Navigator.pushReplacementNamed(context, HomeScreen.id);
               controller.nextPage(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeOut);

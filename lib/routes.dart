@@ -1,4 +1,7 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:monitraka/views/screens/home_screen.dart';
 import 'package:monitraka/views/screens/on_board_screen.dart';
 import 'package:monitraka/views/screens/password_correction/create_new_password.dart';
 import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
@@ -18,5 +21,6 @@ Map<String, WidgetBuilder> routes = {
   PasswordReset.id: (context) => const PasswordReset(),
   CreatePassword.id: (context) => const CreatePassword(),
   PasswordCreated.id: (context) => const PasswordCreated(),
-  LetsGoScreen.id: (context) => const LetsGoScreen()
+  LetsGoScreen.id: (context) => const LetsGoScreen(),
+  HomeScreen.id: (context) => const HomeScreen(),
 };
