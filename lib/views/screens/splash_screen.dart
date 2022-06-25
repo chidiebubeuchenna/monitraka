@@ -13,7 +13,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Widget nav = Navigator();
   Widget splashOne() {
     return Container(
       decoration: BoxDecoration(
