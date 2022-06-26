@@ -1,9 +1,7 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
-import 'package:monitraka/views/screens/register/login_screen.dart';
 
 class LetsGoScreen extends StatefulWidget {
   const LetsGoScreen({Key? key}) : super(key: key);
