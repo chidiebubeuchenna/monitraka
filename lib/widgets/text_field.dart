@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/reg_prov.dart';
 
 class AppTextField extends StatelessWidget {
   final String title;
@@ -18,6 +21,7 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final prov = Provider.of<RegAuth>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,12 +38,21 @@ class AppTextField extends StatelessWidget {
           child: TextFormField(
             validator: validator,
             controller: controller,
-            obscureText: obscureText,
+            obscureText: prov.visible,
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.only(left: 20),
               hintText: hint,
               filled: true,
               fillColor: Resources.color.fillColor,
+              suffixIcon: obscureText
+                  ? IconButton(
+                      onPressed: () => prov.show(),
+                      icon: prov.visible
+                          ? Icon(Icons.visibility_off,
+                              color: Resources.color.cBlack)
+                          : Icon(Icons.visibility,
+                              color: Resources.color.cBlack))
+                  : null,
               hintStyle: TextStyle(
                   color: Resources.color.hintText,
                   fontSize: 12,
