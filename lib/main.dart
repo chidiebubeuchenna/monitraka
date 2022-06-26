@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/providers/reg_prov.dart';
 import 'package:monitraka/routes.dart';
-import 'package:monitraka/views/screens/splash_screen.dart';
+import 'package:monitraka/views/screens/intro/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [],
-      child: const Monitraka(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => RegAuth()),
+    ],
+    child: const Monitraka(),
+  ));
 }
 
 class Monitraka extends StatelessWidget {
