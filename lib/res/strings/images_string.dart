@@ -9,4 +9,6 @@ class ImageStrings {
   String get onboard3 => 'assets/images/onboard3.png';
   String get onboard4 => 'assets/images/onboard4.png';
   String get home => 'assets/images/homescreen.png';
+  String get confettigif => 'assets/images/confetti.gif';
+  String get congrats => 'assets/images/congrats.gif';
 }
