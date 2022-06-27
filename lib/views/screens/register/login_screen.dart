@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: appBar(() => Navigator.popAndPushNamed(context, SignupScreen.id),
+        appBar: appBar(() => Navigator.popAndPushNamed(context, SignupScreen.id)),
         body: SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: Resources.rString.lTitle,
                 bgColor: Resources.color.cGreen,
                 textColor: Resources.color.cWhite,
-                btnAction: () => Navigator.pushNamed(context, HomeScreen.id),
+                btnAction: () => Navigator.pushNamed(context, LetsGoScreen.id),
               ),
               const SizedBox(height: 20),
               Row(
