@@ -19,6 +19,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: appBar(() => Navigator.popAndPushNamed(context, LoginScreen.id)),
         body: SafeArea(
       child: SingleChildScrollView(
         child: Padding(
