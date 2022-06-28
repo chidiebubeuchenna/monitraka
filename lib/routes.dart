@@ -1,6 +1,9 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:monitraka/views/screens/dashboard/activity_screen.dart';
+import 'package:monitraka/views/screens/dashboard/dashboard.dart';
+import 'package:monitraka/views/screens/dashboard/profile_screen.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/views/screens/intro/on_board_screen.dart';
 import 'package:monitraka/views/screens/intro/splash_screen.dart';
@@ -23,4 +26,7 @@ Map<String, WidgetBuilder> routes = {
   PasswordCreated.id: (context) => const PasswordCreated(),
   LetsGoScreen.id: (context) => const LetsGoScreen(),
   HomeScreen.id: (context) => const HomeScreen(),
+  DashBoard.id: (context) => const DashBoard(),
+  ProfileScreen.id: (context) => const ProfileScreen(),
+  ActivityScreen.id: (context) => const ActivityScreen(),
 };
