@@ -1,6 +1,7 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:monitraka/views/screens/home/home.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/views/screens/intro/on_board_screen.dart';
 import 'package:monitraka/views/screens/intro/splash_screen.dart';
@@ -23,4 +24,5 @@ Map<String, WidgetBuilder> routes = {
   PasswordCreated.id: (context) => const PasswordCreated(),
   LetsGoScreen.id: (context) => const LetsGoScreen(),
   HomeScreen.id: (context) => const HomeScreen(),
+  Home.id: (context) => const Home(),
 };

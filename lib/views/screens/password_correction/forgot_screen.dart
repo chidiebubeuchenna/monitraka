@@ -17,6 +17,7 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  bool isPhone = false;
   String initialValue = 'Email';
   List<DropdownMenuItem<String>> values = [
     DropdownMenuItem(
