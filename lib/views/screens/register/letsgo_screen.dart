@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -22,9 +21,23 @@ class _LetsGoScreenState extends State<LetsGoScreen> {
   //   super.initState();
   // }
 
+  decideNavigation(){
+    Future.delayed(const Duration(seconds: 4), (){
+      Navigator.pushNamed(context, LoginScreen.id
+      );
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    decideNavigation();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Resources.color.cWhite,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -32,38 +45,55 @@ class _LetsGoScreenState extends State<LetsGoScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                // Container(
+                //     constraints: BoxConstraints(
+                //       maxWidth: MediaQuery.of(context).size.width,
+                //     ),
+                //     height: 500,
+                //     child: Stack(
+                //       children: [
+                //         Positioned(
+                //           left: 0,
+                //           top: 300,
+                //           child: Image.asset(
+                //             Resources.iStrings.confettiBgWhite,
+                //             height: 155,
+                //             width: 155,
+                //           ),
+                //         ),
+                //         Positioned(
+                //           top: 280,
+                //           left: 160,
+                //           child: Transform.rotate(
+                //             angle: 2 * pi / 3,
+                //             origin: const Offset(50, 50),
+                //             child: Image.asset(
+                //               Resources.iStrings.confettiBgWhite,
+                //               height: 113,
+                //               width: 113,
+                //             ),
+                //           ),
+                //         )
+                //         // Transform(transform: )
+                //       ],
+                //     )),
+                SizedBox(
+                  height: 130,
+                ),
+                
                 Container(
-                    constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width,
-                    ),
-                    height: 500,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          left: 0,
-                          top: 300,
-                          child: Image.asset(
-                            Resources.iStrings.confettiBgWhite,
-                            height: 155,
-                            width: 155,
-                          ),
-                        ),
-                        Positioned(
-                          top: 280,
-                          left: 160,
-                          child: Transform.rotate(
-                            angle: 2 * pi / 3,
-                            origin: const Offset(50, 50),
-                            child: Image.asset(
-                              Resources.iStrings.confettiBgWhite,
-                              height: 113,
-                              width: 113,
-                            ),
-                          ),
-                        )
-                        // Transform(transform: )
-                      ],
-                    )),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      // Image.asset(Resources.iStrings.confetti2,),
+                      Image.asset(Resources.iStrings.congrats)
+                    ],
+                  ),
+                ),
+                //
+                // SizedBox(
+                //   height: 10,
+                // ),
 
                 // SizedBox(height: 450),
                 // Row(children: <Widget>[
