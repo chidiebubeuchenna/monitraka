@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
-import 'package:monitraka/views/screens/home_screen.dart';
+import 'package:monitraka/validator/login_validator.dart';
 import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
 import 'package:monitraka/views/screens/register/signup_screen.dart';
+import 'package:monitraka/widgets/app_bar.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/text_field.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -15,12 +17,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final bool checkedBox = false;
+  final bool checkedBox = true;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final validationService = Provider.of<LoginValidator>(context);
     return Scaffold(
         appBar: appBar(() => Navigator.popAndPushNamed(context, SignupScreen.id)),
         body: SafeArea(
@@ -51,13 +54,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               const SizedBox(height: 20),
-              const AppTextField(
+               AppTextField(
                   title: "Email",
+                  error: validationService.email.error,
                   hint: 'Johndoe4599@gmail.com',
                   obscureText: false),
               const SizedBox(height: 16),
-              const AppTextField(
+               AppTextField(
                   title: "Password",
+                  error: validationService.password.error,
                   hint: '* * * * * * * * * * * *',
                   obscureText: true),
               Row(
@@ -86,8 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: Resources.rString.lTitle,
                 bgColor: Resources.color.cGreen,
                 textColor: Resources.color.cWhite,
-                btnAction: () => Navigator.pushNamed(context, LetsGoScreen.id),
-              ),
+                btnAction: (!validationService.isvalid) ? null: validationService.submitData),//(!validationService.isvalid) ? null: validationService.submitData,),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -147,4 +151,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     ));
   }
+
+
+
+  
 }
