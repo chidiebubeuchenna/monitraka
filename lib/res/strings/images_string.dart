@@ -9,6 +9,23 @@ class ImageStrings {
   String get onboard3 => 'assets/images/onboard3.png';
   String get onboard4 => 'assets/images/onboard4.png';
   String get home => 'assets/images/homescreen.png';
-  String get confettigif => 'assets/images/confetti.gif';
+  // String get confettigif => 'assets/images/confetti.gif';
   String get congrats => 'assets/images/congrats.gif';
+  String get geng => 'assets/images/geng.png';
+  String get moneyStairs => 'assets/images/moneystairs.png';
+  String get couples => 'assets/images/couples.png';
+  String get addFriend => 'assets/images/icons/addfriend.png';
+  String get comment => 'assets/images/icons/comment.png';
+  String get contact => 'assets/images/icons/contact.png';
+  String get coupleIcon => 'assets/images/icons/coupleicon.png';
+  String get done => 'assets/images/icons/done.png';
+  String get facebook => 'assets/images/icons/facebook.png';
+  String get friends => 'assets/images/icons/friends.png';
+  String get heart => 'assets/images/icons/heart.png';
+  String get info => 'assets/images/icons/info.png';
+  String get party => 'assets/images/icons/party.png';
+  String get people => 'assets/images/icons/people.png';
+  String get plus => 'assets/images/icons/plus.png';
+  String get redHeart => 'assets/images/icons/redheart.png';
+  String get threeCircleDots => 'assets/images/icons/threecircledots.png';
 }
