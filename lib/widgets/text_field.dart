@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/validator/login_validator.dart';
+import 'package:provider/provider.dart';
 
 class AppTextField extends StatelessWidget {
   final String title;
   final String hint;
+  final String? error;
   final bool obscureText;
   final TextEditingController? controller;
-  final String? Function(String?)? validator;
+  final String? validator;
+
+
   const AppTextField(
-      {Key? key,
+      {Key? key, required this.error,
       required this.title,
       required this.obscureText,
       this.controller,
@@ -18,6 +23,7 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final validationService = Provider.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -32,10 +38,11 @@ class AppTextField extends StatelessWidget {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 380),
           child: TextFormField(
-            validator: validator,
             controller: controller,
             obscureText: obscureText,
             decoration: InputDecoration(
+              errorText: error,
+              errorStyle: TextStyle(color: Resources.color.redText),
               contentPadding: const EdgeInsets.only(left: 20),
               hintText: hint,
               filled: true,
@@ -52,7 +59,9 @@ class AppTextField extends StatelessWidget {
                 borderSide: BorderSide(color: Resources.color.cGreen),
                 borderRadius: BorderRadius.circular(12),
               ),
+
             ),
+            onChanged: (String value){validationService(context);}//,
           ),
         )
       ],
