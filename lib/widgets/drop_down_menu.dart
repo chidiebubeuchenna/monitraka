@@ -15,7 +15,8 @@ DropdownMenuItem<int> socialItems(String item, val) {
   );
 }
 
-DropdownButtonFormField dropDown(val, List<DropdownMenuItem> items) {
+DropdownButtonFormField dropDown(
+    val, List<DropdownMenuItem> items, void Function(dynamic i)? doSth) {
   return DropdownButtonFormField(
     hint: Text(
       'Select',
@@ -26,7 +27,7 @@ DropdownButtonFormField dropDown(val, List<DropdownMenuItem> items) {
     ),
     value: val,
     items: items,
-    onChanged: (value) {},
+    onChanged: doSth,
     decoration: InputDecoration(
       contentPadding: const EdgeInsets.only(left: 20),
       filled: true,

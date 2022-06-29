@@ -97,7 +97,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                dropDown(_initialValue, _items),
+                dropDown(_initialValue, _items, null),
                 const SizedBox(height: 32),
                 Button(
                     title: 'Create Account',
