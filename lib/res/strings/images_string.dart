@@ -28,4 +28,5 @@ class ImageStrings {
   String get plus => 'assets/images/icons/plus.png';
   String get redHeart => 'assets/images/icons/redheart.png';
   String get threeCircleDots => 'assets/images/icons/threecircledots.png';
+  String get profilePic => 'assets/images/profilepic.png';
 }

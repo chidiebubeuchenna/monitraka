@@ -1,4 +1,4 @@
-#Tue Jun 28 20:44:51 WAT 2022
+#Tue Jun 28 23:24:17 WAT 2022
 base.0=C\:\\Users\\pc\\MonitrakaApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
