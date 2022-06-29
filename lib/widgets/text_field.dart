@@ -1,39 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/res/res.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/reg_prov.dart';
 
 class AppTextField extends StatelessWidget {
   final String title;
+  final String hint;
   final bool obscureText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-  const AppTextField({Key? key,
-    required this.title,
-    this.obscureText = false,
-    this.controller,
-    this.validator,
-  }) : super(key: key);
+  const AppTextField(
+      {Key? key,
+      required this.title,
+      required this.obscureText,
+      this.controller,
+      this.validator,
+      required this.hint})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final prov = Provider.of<RegAuth>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),),
-
-        const SizedBox(height: 15,),
-
-        TextFormField(
-          validator: validator,
-          controller: controller,
-          obscureText: obscureText,
-          cursorColor: Colors.green,
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(0)),
-            border: InputBorder.none,
-            focusedBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(0)),
-            errorStyle: const TextStyle(color: Colors.red),
-            filled: true,
-            fillColor: Colors.green.shade100,
-            labelStyle: const TextStyle(color: Colors.green,),
+        Text(
+          title,
+          style: TextStyle(
+              color: Resources.color.headerText,
+              fontWeight: FontWeight.w600,
+              fontSize: 14),
+        ),
+        const SizedBox(height: 15),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 380),
+          child: TextFormField(
+            validator: validator,
+            controller: controller,
+            obscureText: prov.visible,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(left: 20),
+              hintText: hint,
+              filled: true,
+              fillColor: Resources.color.fillColor,
+              suffixIcon: obscureText
+                  ? IconButton(
+                      onPressed: () => prov.show(),
+                      icon: prov.visible
+                          ? Icon(Icons.visibility_off,
+                              color: Resources.color.cBlack)
+                          : Icon(Icons.visibility,
+                              color: Resources.color.cBlack))
+                  : null,
+              hintStyle: TextStyle(
+                  color: Resources.color.hintText,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Resources.color.cGreen),
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
           ),
         )
       ],
