@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Thu Jun 30 00:01:20 WAT 2022
+#Thu Jun 30 16:25:40 WAT 2022
 base.0=C\:\\Users\\USER\\AndroidStudioProjects\\monitraka\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-=======
-#Thu Jun 30 01:11:10 WAT 2022
-base.0=C\:\\Users\\pc\\MonitrakaApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
->>>>>>> 13d8af1295baa0a4f703b0e746db7a48eedab8d5
 renamed.0=classes.dex
 path.0=classes.dex
