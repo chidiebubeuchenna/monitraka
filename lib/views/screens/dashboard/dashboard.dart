@@ -23,7 +23,7 @@ class _DashBoardState extends State<DashBoard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 200,
+                height: 100,
               ),
               Text('This is the Dashboard'
               ),

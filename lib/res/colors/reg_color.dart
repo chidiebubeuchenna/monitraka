@@ -12,6 +12,15 @@ class RegColor extends BaseColors {
 
   Color get rgText => const Color(0x99000000); //Black @ 60%
   Color get redText => const Color(0xFFEF2626);
+  
+  @override
+  Color get cYellow => const Color(0xffffc727);//Yellow for icons
+  @override
+  Color get cPink => const Color(0x33ff0083); //Pink @ 20%
+  @override
+  Color get cBlue => const Color(0x66407BFF); //Blue @ 40%
+  @override
+  Color get bBlack => const Color(0x33000000); //Black @ 20%
   //TextField
   @override
   Color get headerText => const Color(0xB3000000); //Black @ 70%
