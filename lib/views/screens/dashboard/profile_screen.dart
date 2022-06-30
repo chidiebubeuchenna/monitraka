@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/views/screens/register/login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const id = '/ProfileScreen';
@@ -11,6 +12,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  bool isSwitched = false;
+
+  List profileItems = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ],
                                 ),
                                 child:
-                                // Image.asset(Resources.iStrings.profilePic,)
+                                // Image.asset(Resources.iStrings.profilePic),
                                 Container(
                                   child: Column(
                                     children: [
@@ -122,14 +127,92 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  'Reminder'
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Switch(
+                                    value: isSwitched,
+                                    onChanged: (value) {
+                                      setState(
+                                          () {
+                                            isSwitched = value;
+                                            print(isSwitched);
+                                          }
+                                      );
+                                    },
+                                  // activeTrackColor: Resources.color.cGreen,
+                                  // activeColor: Resources.color.cYellow,
+                                    ),
+
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
 
                     ],
-                  )
-                ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 320,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
+                          bottomLeft: Radius.circular(4)
+                      ),
+
+                      border: Border.all(
+                          color: Resources.color.cGreen,
+                          width: 1
+                      ),
+                      color: Resources.color.cWhite,
+                  ),
+
+                  // child: ListView.builder(
+                  //   itemCount: 2,
+                  //     itemBuilder: (context, index) => Card(
+                  //     child: ListTile(
+                  //       title: GestureDetector(
+                  //         onTap: (){
+                  //           Navigator.pushNamed(context, LoginScreen.id);
+                  //         },
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pushNamed(context, LoginScreen.id);
+                      },
+                      child:    Text('Profile Settings'),
+
+
+                        ),
+                      ),
+
+
+
+
+
+
+
+                  ],
               ),
             ),
             SizedBox(
-              height: 200,
+              height: 20,
             ),
             Text('This is a profile page',
             style: TextStyle(
