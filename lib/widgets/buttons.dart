@@ -4,7 +4,7 @@ class Button extends StatelessWidget {
   final String title;
   final Color textColor;
   final Color bgColor;
-  final Function() btnAction;
+  final Function()? btnAction;
 
   const Button(
       {Key? key,
