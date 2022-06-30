@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
+import 'package:monitraka/views/screens/register/letsgo_screen.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/drop_down_menu.dart';
 import 'package:monitraka/widgets/text_field.dart';
@@ -61,6 +62,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const AppTextField(
                   title: "Email",
                   hint: 'Enter your email address',
+                  error: 'Please enter a valid email',
                   obscureText: false,
                 ),
                 const SizedBox(height: 16),

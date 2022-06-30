@@ -8,12 +8,14 @@ class AppTextField extends StatelessWidget {
   final String title;
   final String hint;
   final bool obscureText;
+  final String? error;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   const AppTextField(
       {Key? key,
       required this.title,
       required this.obscureText,
+      this.error,
       this.controller,
       this.validator,
       required this.hint})

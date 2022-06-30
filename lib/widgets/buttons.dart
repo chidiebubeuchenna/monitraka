@@ -4,7 +4,7 @@ class Button extends StatelessWidget {
   final String title;
   final Color textColor;
   final Color bgColor;
-  final Function() btnAction;
+  final Function()? btnAction;
 
   const Button(
       {Key? key,
@@ -19,6 +19,14 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       onPressed: btnAction,
       style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(8),
+    topRight: Radius.circular(8),
+    bottomRight: Radius.circular(8),
+    bottomLeft: Radius.circular(4)
+          ),
+        ),
         elevation: 0,
         primary: bgColor,
         textStyle: TextStyle(

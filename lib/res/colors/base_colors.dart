@@ -5,6 +5,10 @@ abstract class BaseColors {
   Color get cGreen;
   Color get cWhite;
   Color get cBlack;
+  Color get cYellow;
+  Color get cPink;
+  Color get cBlue;
+  Color get bBlack;
 
   //text_field color
   Color get headerText; //Text above the text fields i.e. E - mail
