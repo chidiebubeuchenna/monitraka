@@ -1,9 +1,12 @@
 // import 'dart:js';
 
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/activity_screen.dart';
 import 'package:monitraka/views/screens/dashboard/dashboard.dart';
 import 'package:monitraka/views/screens/dashboard/profile_screen.dart';
+import 'package:monitraka/views/screens/dashboard/security_screen.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/views/screens/intro/on_board_screen.dart';
 import 'package:monitraka/views/screens/intro/splash_screen.dart';
@@ -29,4 +32,5 @@ Map<String, WidgetBuilder> routes = {
   DashBoard.id: (context) => const DashBoard(),
   ProfileScreen.id: (context) => const ProfileScreen(),
   ActivityScreen.id: (context) => const ActivityScreen(),
+  SecurityScreen.id: (context) => const SecurityScreen(),
 };

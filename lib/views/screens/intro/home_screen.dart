@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       minimumSize: const Size(120, 50),
                     ),
                     child: Text(Resources.rString.lTitle),
-                  ),
+                  ), //Log in
                   ElevatedButton(
                     onPressed: () =>
                         Navigator.pushNamed(context, SignupScreen.id),
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Resources.rString.sTitle,
                       style: TextStyle(color: Resources.color.cBlack),
                     ),
-                  )
+                  ), //Sign up
                 ],
               ),
             ),
