@@ -18,16 +18,15 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   String initialValue = 'Email';
+  bool isPhone = false;
   List<DropdownMenuItem<String>> values = [
     DropdownMenuItem(
       value: 'Email',
-      child: Text(
-        'Email',
-        style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Resources.color.hintText),
-      ),
+      child: Text('Email',
+          style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Resources.color.hintText)),
     ),
     DropdownMenuItem(
       value: 'Phone Number',
@@ -38,6 +37,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               color: Resources.color.hintText)),
     )
   ];
+
+  onSelect(isPhone) {
+    setState(() {
+      isPhone = !isPhone;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,15 +67,18 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 25),
-              dropDown(initialValue, values),
-              const AppTextField(
-                  title: 'Email',
-                  obscureText: false,
-                  hint: 'Johndoe4599@gmail.com'),
-              const AppTextField(
-                  title: 'Phone Number',
-                  obscureText: false,
-                  hint: '08011448899'),
+              dropDown(initialValue, values, onSelect),
+              Container(
+                child: isPhone
+                    ? const AppTextField(
+                        title: 'Phone Number',
+                        obscureText: false,
+                        hint: '08011448899')
+                    : const AppTextField(
+                        title: 'Email',
+                        obscureText: false,
+                        hint: 'Johndoe4599@gmail.com'),
+              ),
               const SizedBox(height: 36),
               Button(
                 title: 'Send Token',
