@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/providers/reg_prov.dart';
-import 'package:monitraka/routes/routes.dart';
+import 'package:monitraka/routes.dart';
 import 'package:monitraka/validator/login_validator.dart';
 import 'package:monitraka/views/screens/intro/splash_screen.dart';
 import 'package:provider/provider.dart';

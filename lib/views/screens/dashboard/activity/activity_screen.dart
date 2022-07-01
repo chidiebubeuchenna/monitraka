@@ -11,8 +11,18 @@ class ActivityScreen extends StatefulWidget {
 }
 
 class _ActivityScreenState extends State<ActivityScreen> {
-  Widget activity(IconData tileIcon, String title, void Function() nav) {
+  Widget activityTile(IconData tileIcon, String title, void Function() nav) {
     return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+              bottomLeft: Radius.circular(4)),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 25),
+          ]),
       child: ListTile(
         leading: Icon(tileIcon),
         title: Text(
@@ -24,36 +34,40 @@ class _ActivityScreenState extends State<ActivityScreen> {
         ),
         trailing: const Icon(Icons.navigate_next),
         onTap: nav,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+              bottomLeft: Radius.circular(4)),
+        ),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              Text('Activity',
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w900,
-                      color: Resources.color.cBlack)),
-              Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(Resources.iStrings.moneyStairs)),
-              const SizedBox(height: 30),
-              activity(
-                  Icons.shield_outlined, 'Create a private community', () {}),
-              const SizedBox(height: 16),
-              activity(Icons.groups_outlined, 'Join a community', () {})
-            ],
-          ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            Text('Activity',
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w900,
+                    color: Resources.color.cBlack)),
+            Align(
+                alignment: Alignment.center,
+                child: Image.asset(Resources.iStrings.moneyStairs)),
+            const SizedBox(height: 30),
+            activityTile(
+                Icons.shield_outlined, 'Create a private community', () {}),
+            const SizedBox(height: 16),
+            activityTile(Icons.groups_outlined, 'Join a community', () {})
+          ],
         ),
       ),
     );

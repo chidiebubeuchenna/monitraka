@@ -12,13 +12,11 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(24.0),
-          child: Center(
-            child: Text('Dashboard'),
-          ),
+    return const SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: Center(
+          child: Text('Dashboard'),
         ),
       ),
     );

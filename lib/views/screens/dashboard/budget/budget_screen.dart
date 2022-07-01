@@ -10,10 +10,8 @@ class Budget extends StatefulWidget {
 class _BudgetState extends State<Budget> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('This is the Budget Screen'),
-      ),
+    return const Center(
+      child: Text('This is the Budget Screen'),
     );
   }
 }
