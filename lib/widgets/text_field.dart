@@ -15,7 +15,7 @@ class AppTextField extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.obscureText,
-        this.error,
+      this.error,
       this.controller,
       this.validator,
       required this.hint})
