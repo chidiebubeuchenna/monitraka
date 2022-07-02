@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/providers/reg_prov.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/validator/login_validator.dart';
-import 'package:monitraka/views/screens/dashboard/dashboard.dart';
-import 'package:monitraka/views/screens/intro/home_screen.dart';
+import 'package:monitraka/views/screens/dashboard/home/dashboard.dart';
+import 'package:monitraka/views/screens/dashboard/tab_screen.dart';
 import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
 import 'package:monitraka/views/screens/register/signup_screen.dart';
 import 'package:monitraka/widgets/buttons.dart';
-import 'package:monitraka/widgets/text_field.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,7 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final validationService = Provider.of<LoginValidator>(context, listen: true);
+    final validationService =
+        Provider.of<LoginValidator>(context, listen: true);
     final prov = Provider.of<RegAuth>(context);
     return Scaffold(
       body: SafeArea(
@@ -56,81 +56,78 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                'Email',
-                style: TextStyle(
-                    color: Resources.color.headerText,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14),
-              ),
-              const SizedBox(height: 15),
-              TextFormField(
-                obscureText: false,
-                decoration: InputDecoration(
-                  errorText: 'Please put in a valid email',
-                  errorStyle: TextStyle(color: Resources.color.redText),
-                  contentPadding: const EdgeInsets.only(left: 20),
-                  hintText: 'Johndoe4599@gmail.com',
-                  filled: true,
-                  fillColor: Resources.color.fillColor,
-                  hintStyle: TextStyle(
-                      color: Resources.color.hintText,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Resources.color.cGreen),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-
+                  'Email',
+                  style: TextStyle(
+                      color: Resources.color.headerText,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14),
                 ),
-                onChanged: (value)=>setState(()=>
-    validationService.changeemail(value))
-              ),
+                const SizedBox(height: 15),
+                TextFormField(
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      errorText: 'Please put in a valid email',
+                      errorStyle: TextStyle(color: Resources.color.redText),
+                      contentPadding: const EdgeInsets.only(left: 20),
+                      hintText: 'Johndoe4599@gmail.com',
+                      filled: true,
+                      fillColor: Resources.color.fillColor,
+                      hintStyle: TextStyle(
+                          color: Resources.color.hintText,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Resources.color.cGreen),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onChanged: (value) =>
+                        setState(() => validationService.changeemail(value))),
                 //const AppTextField(
-                 //   title: "Email",
-                  //  hint: 'Johndoe4599@gmail.com',
-                  //  obscureText: false),
+                //   title: "Email",
+                //  hint: 'Johndoe4599@gmail.com',
+                //  obscureText: false),
                 const SizedBox(height: 16),
                 Text(
-                'Password',
-                style: TextStyle(
-                    color: Resources.color.headerText,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14),
-              ),
-               const SizedBox(height: 15),
-               TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  errorText: 'Password cannot be empty',
-                  errorStyle: TextStyle(color: Resources.color.redText),
-                  contentPadding: const EdgeInsets.only(left: 20),
-                  hintText: '* * * * * * * * * * * *',
-                  filled: true,
-                  fillColor: Resources.color.fillColor,
-                  hintStyle: TextStyle(
-                      color: Resources.color.hintText,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Resources.color.cGreen),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-
+                  'Password',
+                  style: TextStyle(
+                      color: Resources.color.headerText,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14),
                 ),
-                onChanged: (value)=>setState (()=>
-    validationService.changepassword(value))),
+                const SizedBox(height: 15),
+                TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      errorText: 'Password cannot be empty',
+                      errorStyle: TextStyle(color: Resources.color.redText),
+                      contentPadding: const EdgeInsets.only(left: 20),
+                      hintText: '* * * * * * * * * * * *',
+                      filled: true,
+                      fillColor: Resources.color.fillColor,
+                      hintStyle: TextStyle(
+                          color: Resources.color.hintText,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Resources.color.cGreen),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onChanged: (value) => setState(
+                        () => validationService.changepassword(value))),
                 //const AppTextField(
-                   // title: "Password",
-                   // hint: '* * * * * * * * * * * *',
-                   // obscureText: true),
+                // title: "Password",
+                // hint: '* * * * * * * * * * * *',
+                // obscureText: true),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -153,7 +150,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   title: Resources.rString.lTitle,
                   bgColor: Resources.color.cGreen,
                   textColor: Resources.color.cWhite,
-                  btnAction:(!validationService.isvalid) ? null: () => Navigator.pushNamed(context, DashBoard.id),
+                  btnAction: (!validationService.isvalid)
+                      ? null
+                      : () => Navigator.pushNamed(context, TabScreen.id),
                 ),
                 const SizedBox(height: 20),
                 Row(
