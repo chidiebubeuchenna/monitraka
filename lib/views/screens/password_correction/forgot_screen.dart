@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/password_correction/password_reset.dart';
-import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/widgets/app_bar.dart';
 import 'package:monitraka/widgets/drop_down_menu.dart';
-import 'package:monitraka/widgets/text_field.dart';
 
 import '../../../widgets/buttons.dart';
 import '../register/signup_screen.dart';
@@ -47,7 +45,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(() => Navigator.popAndPushNamed(context, LoginScreen.id)),
+      appBar: appBar(() => Navigator.pop(context)),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -68,17 +66,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
               const SizedBox(height: 25),
               dropDown(initialValue, values, onSelect),
-              Container(
-                child: isPhone
-                    ? const AppTextField(
-                        title: 'Phone Number',
-                        obscureText: false,
-                        hint: '08011448899')
-                    : const AppTextField(
-                        title: 'Email',
-                        obscureText: false,
-                        hint: 'Johndoe4599@gmail.com'),
-              ),
+              // Container(
+              //   child: isPhone
+              //       ? const AppTextField(
+              //           title: 'Phone Number',
+              //           obscureText: false,
+              //           hint: '08011448899')
+              //       : const AppTextField(
+              //           title: 'Email',
+              //           obscureText: false,
+              //           hint: 'Johndoe4599@gmail.com'),
+              // ),
               const SizedBox(height: 36),
               Button(
                 title: 'Send Token',
