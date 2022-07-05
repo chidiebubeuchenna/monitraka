@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/reg_prov.dart';
+import '../providers/auth.dart';
 
 TextStyle titleStyle = TextStyle(
   color: Resources.color.headerText,
@@ -25,7 +25,7 @@ class CommonTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prov = Provider.of<RegAuth>(context);
+    final prov = Provider.of<Auth>(context);
     return TextFormField(
       validator: validator,
       controller: controller,
@@ -46,13 +46,23 @@ class CommonTextField extends StatelessWidget {
             color: Resources.color.hintText,
             fontSize: 12,
             fontWeight: FontWeight.w600),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+            bottomLeft: Radius.circular(4),
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Resources.color.cGreen),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+            bottomLeft: Radius.circular(4),
+          ),
         ),
       ),
     );
@@ -78,13 +88,23 @@ class SpecialField extends StatelessWidget {
             color: Resources.color.hintText,
             fontSize: 12,
             fontWeight: FontWeight.w600),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+            bottomLeft: Radius.circular(4),
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Resources.color.cGreen),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+            bottomLeft: Radius.circular(4),
+          ),
         ),
       ),
     );

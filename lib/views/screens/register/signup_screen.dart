@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:monitraka/providers/signup_prov.dart';
+import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/views/screens/register/letsgo_screen.dart';
 import 'package:monitraka/widgets/buttons.dart';
-import 'package:monitraka/widgets/drop_down_menu.dart';
 import 'package:monitraka/widgets/text_field.dart';
 import 'package:provider/provider.dart';
 
@@ -26,14 +25,92 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _cPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  final int _initialValue = 0;
-  final List<DropdownMenuItem<int>> _items = [
-    socialItems('WhatsApp', 0),
-    socialItems('Twitter', 1),
-    socialItems('Instagram', 2),
-    socialItems('A friend', 3),
-    socialItems('Our team', 4),
-  ];
+  String itemValue = 'Select';
+
+  showModal() {
+    itemOptions(int tileId, int selectedTile, String item) {
+      return Consumer<Auth>(
+        builder: (BuildContext context, val, Widget? child) => ListTile(
+          leading: Checkbox(
+            value: val.modalCheckBox,
+            onChanged: (value) {
+              val.modalBox();
+            },
+            activeColor: Resources.color.cGreen,
+            checkColor: Resources.color.cGreen,
+            shape: const CircleBorder(),
+          ),
+          title: Text(item),
+          onTap: () {
+            setState(() => itemValue = item);
+            val.modalBox();
+          },
+        ),
+      );
+    }
+
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) => SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'How did you hear about us?',
+                        style: TextStyle(
+                            color: Resources.color.cGreen,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14),
+                      ),
+                      IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(
+                          Icons.cancel_outlined,
+                          color: Resources.color.cGreen,
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 18.5),
+                  const SpecialField(hint: 'Search', icon: Icon(Icons.search)),
+                  const SizedBox(height: 16.5),
+                ],
+              ),
+            ),
+            Column(
+              children: [
+                itemOptions(0, 0, 'WhatsApp'),
+                itemOptions(1, 1, 'Twitter'),
+                itemOptions(2, 2, 'Instagram'),
+                itemOptions(3, 3, 'A friend'),
+                itemOptions(4, 4, 'Our team')
+              ],
+            ),
+            const SizedBox(height: 13),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Button(
+                title: 'Done',
+                textColor: Resources.color.cWhite,
+                bgColor: Resources.color.cGreen,
+                btnAction: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(height: 14.5)
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -143,9 +220,37 @@ class _SignupScreenState extends State<SignupScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  dropDown(_initialValue, _items, (a) {}),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        // value =
+                      });
+                      showModal();
+                    },
+                    child: Container(
+                      width: 374,
+                      height: 52,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Resources.color.fillColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
+                          bottomLeft: Radius.circular(4),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(itemValue),
+                          const Icon(Icons.keyboard_arrow_down)
+                        ],
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 32),
-                  Consumer<SignupProv>(
+                  Consumer<Auth>(
                     builder: (BuildContext context, value, Widget? child) =>
                         Button(
                       title: 'Create Account',

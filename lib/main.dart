@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:monitraka/providers/reg_prov.dart';
-import 'package:monitraka/providers/signup_prov.dart';
+import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/routes.dart';
 import 'package:monitraka/views/screens/intro/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +7,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (context) => RegAuth()),
-      ChangeNotifierProvider(create: (context) => SignupProv())
+      ChangeNotifierProvider(create: (context) => Auth()),
     ],
     child: const Monitraka(),
   ));

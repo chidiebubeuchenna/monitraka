@@ -14,13 +14,17 @@ class JoinCommunity extends StatefulWidget {
 
 class _JoinCommunityState extends State<JoinCommunity> {
   int currentBtn = 0;
+  // Map<Widget, Widget> communities = {
+  //   Image.asset(Resources.iStrings.couples): const Icon()
+  // };
   List<Widget> commTypes = [
     Containers(
       boxColor: Resources.color.cPink,
       boxInfo: Align(
-          alignment: Alignment.centerRight,
-          child: Image.asset(Resources.iStrings.moneyStairs,
-              height: 20, width: 20)),
+        alignment: Alignment.centerRight,
+        child:
+            Image.asset(Resources.iStrings.moneyStairs, height: 20, width: 20),
+      ),
     ),
   ];
   TextButton commType(String txt, int id, int selected) {
@@ -97,7 +101,30 @@ class _JoinCommunityState extends State<JoinCommunity> {
             commType('Students', 6, 6)
           ],
         ),
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(Icons.info_outline, size: 20, color: Colors.blue),
+              Text(
+                'No one can in the public community can see your profile.',
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Resources.color.hintText),
+                textAlign: TextAlign.center,
+              )
+            ],
+          ),
+        ),
         const SizedBox(height: 6),
+        Container(
+          color: Colors.pink,
+          width: 354,
+          height: 245,
+        )
 
         // commTypes[currentBtn]
       ],

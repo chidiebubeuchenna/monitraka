@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/main.dart';
-import 'package:monitraka/providers/reg_prov.dart';
+import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/dashboard/activity/communities/friends/friends.dart';
 import 'package:monitraka/widgets/app_bar.dart';
@@ -30,7 +30,7 @@ class _PrivateCommunityState extends State<PrivateCommunity> {
                   color: Resources.color.headerText,
                   fontSize: 16,
                   fontWeight: FontWeight.w500)),
-          Consumer<RegAuth>(
+          Consumer<Auth>(
             builder: (BuildContext context, value, Widget? child) => Checkbox(
               value: value.checkBox,
               onChanged: (val) => value.box(),

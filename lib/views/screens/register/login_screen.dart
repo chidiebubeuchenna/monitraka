@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:monitraka/providers/reg_prov.dart';
+import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/dashboard/tab_screen.dart';
 import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final prov = Provider.of<RegAuth>(context);
+    final prov = Provider.of<Auth>(context);
     final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(

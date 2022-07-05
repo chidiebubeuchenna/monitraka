@@ -69,7 +69,25 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 () => Navigator.pushNamed(context, PrivateCommunity.id)),
             const SizedBox(height: 16),
             activityTile(Icons.groups_outlined, 'Join a community',
-                () => Navigator.pushNamed(context, JoinCommunity.id))
+                () => Navigator.pushNamed(context, JoinCommunity.id)),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.info_outline, size: 20, color: Colors.blue),
+                  Text(
+                    'Communities you join or create will be added here.',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                        color: Resources.color.hintText),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/password_correction/password_reset.dart';
 import 'package:monitraka/widgets/app_bar.dart';
-import 'package:monitraka/widgets/drop_down_menu.dart';
+import 'package:monitraka/widgets/text_field.dart';
 
 import '../../../widgets/buttons.dart';
 import '../register/signup_screen.dart';
@@ -15,32 +15,33 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  String initialValue = 'Email';
-  bool isPhone = false;
+  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
+
+  bool isPhone = true;
+  int index = 0;
   List<DropdownMenuItem<String>> values = [
     DropdownMenuItem(
       value: 'Email',
-      child: Text('Email',
-          style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Resources.color.hintText)),
+      child: Text(
+        'Email',
+        style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Resources.color.hintText),
+      ),
     ),
     DropdownMenuItem(
       value: 'Phone Number',
-      child: Text('Phone Number',
-          style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Resources.color.hintText)),
+      child: Text(
+        'Phone Number',
+        style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Resources.color.hintText),
+      ),
     )
   ];
-
-  onSelect(isPhone) {
-    setState(() {
-      isPhone = !isPhone;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,18 +66,54 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 25),
-              dropDown(initialValue, values, onSelect),
-              // Container(
-              //   child: isPhone
-              //       ? const AppTextField(
-              //           title: 'Phone Number',
-              //           obscureText: false,
-              //           hint: '08011448899')
-              //       : const AppTextField(
-              //           title: 'Email',
-              //           obscureText: false,
-              //           hint: 'Johndoe4599@gmail.com'),
-              // ),
+              DropdownButtonFormField(
+                value: values[index].value,
+                items: values,
+                onChanged: (i) {
+                  setState(() {
+                    isPhone = !isPhone;
+                  });
+                },
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(left: 20),
+                  filled: true,
+                  fillColor: Resources.color.fillColor,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Resources.color.cGreen),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Container(
+                child: isPhone
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Email', style: titleStyle),
+                          const SizedBox(height: 15),
+                          CommonTextField(
+                              obscureText: false,
+                              controller: _emailController,
+                              hint: 'Johndoe4599@gmail.com')
+                        ],
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Phone Number', style: titleStyle),
+                          const SizedBox(height: 15),
+                          CommonTextField(
+                              obscureText: false,
+                              controller: _phoneController,
+                              hint: '08011448899'),
+                        ],
+                      ),
+              ),
               const SizedBox(height: 36),
               Button(
                 title: 'Send Token',
