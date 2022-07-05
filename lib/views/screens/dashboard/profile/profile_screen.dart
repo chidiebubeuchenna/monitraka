@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/widgets/tiles.dart';
+import 'package:monitraka/views/screens/dashboard/contact_us.dart';
+import 'package:monitraka/views/screens/dashboard/password_settings.dart';
+import 'package:monitraka/views/screens/dashboard/profile_settings.dart';
+import 'package:monitraka/views/screens/dashboard/security_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const id = '/ProfileScreen';
@@ -157,14 +161,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              profileTile(Icons.manage_accounts, 'Profile Settings', () {}),
+              profileTile(Icons.manage_accounts, 'Profile Settings', () => Navigator.pushNamed(context, '/ProfileSettings')),
               const SizedBox(height: 30),
-              profileTile(Icons.safety_check_sharp, 'Security',
-                  () => Navigator.pushNamed(context, '/Security')),
+              profileTile(Icons.safety_check_sharp, 'Security', () => Navigator.pushNamed(context, '/Security')),
               const SizedBox(height: 30),
-              profileTile(Icons.password, 'Password', () {}),
+              profileTile(Icons.password, 'Password', () => Navigator.pushNamed(context, '/PasswordSettings')),
               const SizedBox(height: 30),
-              profileTile(Icons.call_rounded, 'Contact us', () {}),
+              profileTile(Icons.call_rounded, 'Contact us', () => Navigator.pushNamed(context, '/ContactUs')),
               const SizedBox(height: 30),
               profileTile(Icons.logout, 'Log out', showModal),
               const SizedBox(height: 10),
