@@ -3,6 +3,7 @@ import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/password_correction/password_reset.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/widgets/app_bar.dart';
+import 'package:monitraka/widgets/drop_down_menu.dart';
 import 'package:monitraka/widgets/text_field.dart';
 
 import '../../../widgets/buttons.dart';
@@ -16,6 +17,33 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  String initialValue = 'Email';
+  bool isPhone = false;
+  List<DropdownMenuItem<String>> values = [
+    DropdownMenuItem(
+      value: 'Email',
+      child: Text('Email',
+          style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Resources.color.hintText)),
+    ),
+    DropdownMenuItem(
+      value: 'Phone Number',
+      child: Text('Phone Number',
+          style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Resources.color.hintText)),
+    )
+  ];
+
+  onSelect(isPhone) {
+    setState(() {
+      isPhone = !isPhone;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,22 +60,25 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       fontWeight: FontWeight.w700,
                       color: Resources.color.cGreen)),
               Text(
-                Resources.rString.fContent,
+                'Enter to reset account',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 25),
-              const AppTextField(
-                  title: 'Email',
-                  obscureText: false,
-                  hint: 'Johndoe4599@gmail.com'),
-              const SizedBox(height: 16),
-              const AppTextField(
-                  title: 'Phone Number',
-                  obscureText: false,
-                  hint: '08011448899'),
+              dropDown(initialValue, values, onSelect),
+              Container(
+                child: isPhone
+                    ? const AppTextField(
+                        title: 'Phone Number',
+                        obscureText: false,
+                        hint: '08011448899')
+                    : const AppTextField(
+                        title: 'Email',
+                        obscureText: false,
+                        hint: 'Johndoe4599@gmail.com'),
+              ),
               const SizedBox(height: 36),
               Button(
                 title: 'Send Token',
