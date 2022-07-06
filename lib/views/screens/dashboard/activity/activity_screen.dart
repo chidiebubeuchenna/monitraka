@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/views/screens/dashboard/activity/communities/join_comm.dart';
+import 'package:monitraka/views/screens/dashboard/activity/communities/private_comm.dart';
 
 class ActivityScreen extends StatefulWidget {
   static const id = '/Activity';
@@ -63,10 +65,29 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 alignment: Alignment.center,
                 child: Image.asset(Resources.iStrings.moneyStairs)),
             const SizedBox(height: 30),
-            activityTile(
-                Icons.shield_outlined, 'Create a private community', () {}),
+            activityTile(Icons.shield_outlined, 'Create a private community',
+                () => Navigator.pushNamed(context, PrivateCommunity.id)),
             const SizedBox(height: 16),
-            activityTile(Icons.groups_outlined, 'Join a community', () {})
+            activityTile(Icons.groups_outlined, 'Join a community',
+                () => Navigator.pushNamed(context, JoinCommunity.id)),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.info_outline, size: 20, color: Colors.blue),
+                  Text(
+                    'Communities you join or create will be added here.',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                        color: Resources.color.hintText),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
