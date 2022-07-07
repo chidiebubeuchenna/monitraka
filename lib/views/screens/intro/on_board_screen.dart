@@ -45,7 +45,7 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
       bottomSheet: Row(
         children: [
-          const SizedBox(width: 30),
+          const SizedBox(width: 38),
           TextButton(
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, HomeScreen.id),
@@ -57,14 +57,14 @@ class _OnBoardingState extends State<OnBoarding> {
                   fontWeight: FontWeight.w400),
             ),
           ),
-          const SizedBox(width: 70),
+          const SizedBox(width: 60),
           CirclePageIndicator(
             dotColor: const Color(0xFFE9C60C),
             selectedDotColor: const Color(0xFF877203),
             currentPageNotifier: pageNotifier,
             itemCount: 4,
           ),
-          const SizedBox(width: 38),
+          const SizedBox(width: 60),
           TextButton(
             onPressed: () {
               if (pageNotifier.value == 3) {
@@ -81,7 +81,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     fontSize: 18,
                     fontWeight: FontWeight.w400)),
           ),
-          const SizedBox(width: 30),
+          const SizedBox(width: 38),
         ],
       ),
     );

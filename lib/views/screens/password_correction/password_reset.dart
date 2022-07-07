@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/password_correction/create_new_password.dart';
-import 'package:monitraka/views/screens/password_correction/forgot_screen.dart';
 import 'package:monitraka/widgets/app_bar.dart';
 
 import '../../../res/res.dart';
 import '../../../widgets/buttons.dart';
-import '../../../widgets/text_field.dart';
 
 class PasswordReset extends StatefulWidget {
   const PasswordReset({Key? key}) : super(key: key);
@@ -19,8 +17,7 @@ class _PasswordResetState extends State<PasswordReset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: specialAppBar(
-          () => Navigator.popAndPushNamed(context, ForgotPassword.id)),
+      appBar: specialAppBar(() => Navigator.pop(context)),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -40,10 +37,27 @@ class _PasswordResetState extends State<PasswordReset> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 25),
-              const AppTextField(
-                  title: 'Enter 6-digit token',
-                  obscureText: false,
-                  hint: '* * * * *'),
+              TextField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(left: 20),
+                  hintText: '* * * * *',
+                  filled: true,
+                  fillColor: Resources.color.fillColor,
+                  hintStyle: TextStyle(
+                      color: Resources.color.hintText,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Resources.color.cGreen),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
               const SizedBox(height: 36),
               Button(
                 title: 'Next',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/activity/activity_screen.dart';
+import 'package:monitraka/views/screens/dashboard/activity/communities/join_comm.dart';
+import 'package:monitraka/views/screens/dashboard/activity/communities/private_comm.dart';
 
 class ActivityNav extends StatefulWidget {
   const ActivityNav({Key? key}) : super(key: key);
@@ -22,6 +24,12 @@ class _ActivityNavState extends State<ActivityNav> {
             switch (settings.name) {
               case '/':
                 return const ActivityScreen();
+
+              case '/JoinCommunity':
+                return const JoinCommunity();
+
+              case '/PrivateCommunity':
+                return const PrivateCommunity();
             }
             return const ActivityScreen();
           },

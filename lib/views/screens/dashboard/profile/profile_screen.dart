@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:monitraka/main.dart';
 import 'package:monitraka/res/res.dart';
-import 'package:monitraka/views/screens/intro/home_screen.dart';
+import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/widgets/tiles.dart';
 import 'package:monitraka/views/screens/dashboard/contact_us.dart';
 import 'package:monitraka/views/screens/dashboard/password_settings.dart';
 import 'package:monitraka/views/screens/dashboard/profile_settings.dart';
 import 'package:monitraka/views/screens/dashboard/security_screen.dart';
+
+import '../../../../viewmodels/user_view_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const id = '/ProfileScreen';
@@ -18,7 +21,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool isSwitched = false;
-
+  final userInfo = UserViewModel();
   ElevatedButton modalButton(Function() option, String data) {
     return ElevatedButton(
       onPressed: option,
@@ -41,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Future showModal() {
+  showModal() {
     return showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -62,7 +65,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 32),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               modalButton(
-                  () => Navigator.pushNamed(context, HomeScreen.id), 'YES'),
+                  () => Monitraka.mainAppKey.currentState!
+                      .pushNamed(LoginScreen.id),
+                  'YES'),
               modalButton(() => Navigator.pop(context), 'NO')
             ])
           ],
@@ -73,8 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SafeArea(
+    return SafeArea(
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
@@ -130,12 +135,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         const SizedBox(width: 7),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text('Account Name'), Text('Tom Ogbu')],
+                          children: [
+                            Text('Account Name'),
+                            Text(userInfo.user.name)
+                          ],
                         ),
                         const SizedBox(width: 70),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text('Traka Id'), Text('MT1000')],
+                          children: [Text('Traka Id'), Text(userInfo.user.id)],
                         )
                       ],
                     ),
