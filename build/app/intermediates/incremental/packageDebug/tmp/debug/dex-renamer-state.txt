@@ -1,4 +1,4 @@
-#Sat Jul 02 21:10:28 WAT 2022
-base.0=C\:\\Users\\pc\\MonitrakaApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Tue Jul 05 00:16:54 WAT 2022
+base.0=C\:\\Users\\USER\\AndroidStudioProjects\\monitraka\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

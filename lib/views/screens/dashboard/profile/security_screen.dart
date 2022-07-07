@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/widgets/text_field.dart';
 
 class SecurityScreen extends StatefulWidget {
   static const id = '/SecurityScreen';
@@ -21,47 +22,31 @@ class _SecurityScreenState extends State<SecurityScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            (Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      'Security',
-                      style: TextStyle(
-                          color: Resources.color.cGreen,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                Text(
+                  'Security',
+                  style: TextStyle(
+                      color: Resources.color.cGreen,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700),
                 ),
-                Column(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.close,
-                          color: Resources.color.cGreen,
-                        )),
-                  ],
+                IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: Icon(Icons.cancel_outlined,
+                      color: Resources.color.cGreen),
                 ),
               ],
-            )),
+            ),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 16,
-                right: 16,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Column(
                 children: [
-                  Column(
-                    children: [Text('Show amount on dashboard')],
-                  ),
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text('Show amount on dashboard', style: titleStyle),
                       Switch(
                         value: isSwitched2,
                         onChanged: (value) {
@@ -70,25 +55,13 @@ class _SecurityScreenState extends State<SecurityScreen> {
                             print(isSwitched2);
                           });
                         },
-                      )
+                      ),
                     ],
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16,
-                right: 16,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [Text('Enable Finger Print or face ID')],
-                  ),
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text('Enable Finger Print or face ID', style: titleStyle),
                       Switch(
                         value: isSwitched,
                         onChanged: (value) {
@@ -99,7 +72,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                         },
                       )
                     ],
-                  ),
+                  )
                 ],
               ),
             ),

@@ -33,7 +33,7 @@ class _TabScreenState extends State<TabScreen> {
     profileKey
   ];
 
-  Future<bool> _systemBackButtonPressed() async {
+  Future<bool> _systemBackButtonPressed() {
     if (_navigatorKeys[_selectedItem].currentState!.canPop()) {
       _navigatorKeys[_selectedItem]
           .currentState!
