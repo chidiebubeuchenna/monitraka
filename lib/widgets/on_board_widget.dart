@@ -40,6 +40,7 @@ class BoardItem extends StatelessWidget {
                 fontSize: 16),
           ),
         ),
+        
       ],
     );
   }

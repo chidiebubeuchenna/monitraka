@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:monitraka/providers/reg_prov.dart';
 import 'package:monitraka/routes.dart';
