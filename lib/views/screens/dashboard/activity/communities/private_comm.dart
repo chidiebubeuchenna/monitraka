@@ -1,14 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:monitraka/main.dart';
-import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
-import 'package:monitraka/views/screens/dashboard/activity/communities/friends/friends.dart';
+
 import 'package:monitraka/widgets/app_bar.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/text_field.dart';
-import 'package:provider/provider.dart';
 
-import 'friends/add_friends.dart';
+import 'modal_screens/add_friends_modal.dart';
+import 'modal_screens/friends_modal.dart';
+
+String select = '';
+List<Widget> rowItem = [];
+containerGen(String itemVal) {
+  return Container(
+    margin: const EdgeInsets.only(left: 12),
+    width: 115,
+    height: 23,
+    decoration: BoxDecoration(
+      color: Resources.color.cWhite,
+      borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+          bottomLeft: Radius.circular(4)),
+    ),
+    child: Center(
+      child: Text(itemVal,
+          style: TextStyle(
+              color: Resources.color.hintText,
+              fontSize: 12,
+              fontWeight: FontWeight.w500)),
+    ),
+  );
+}
+
+rowGen() {
+  return Row(
+    children: rowItem,
+  );
+}
 
 class PrivateCommunity extends StatefulWidget {
   const PrivateCommunity({Key? key}) : super(key: key);
@@ -19,62 +48,6 @@ class PrivateCommunity extends StatefulWidget {
 }
 
 class _PrivateCommunityState extends State<PrivateCommunity> {
-  showModal(context) {
-    // int currentCheckBox = 0;
-    Row modalOptions(String text, int id) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(text,
-              style: TextStyle(
-                  color: Resources.color.headerText,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500)),
-          Consumer<Auth>(
-            builder: (BuildContext context, value, Widget? child) => Checkbox(
-              value: value.checkBox,
-              onChanged: (val) => value.box(),
-              checkColor: Resources.color.cGreen,
-              activeColor: Resources.color.cWhite,
-            ),
-          )
-        ],
-      );
-    }
-
-    return showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              Text(
-                'What do you want to make open\n '
-                ' to your team?',
-                style: TextStyle(
-                    color: Resources.color.cGreen,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 16),
-              modalOptions('Budget Account', 1),
-              modalOptions('Budget Name', 2),
-              modalOptions('Budget Duration', 3),
-              const SizedBox(height: 16),
-              Button(
-                  title: 'Done',
-                  textColor: Resources.color.cWhite,
-                  bgColor: Resources.color.cGreen,
-                  btnAction: () => Navigator.pop(context))
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -134,15 +107,41 @@ class _PrivateCommunityState extends State<PrivateCommunity> {
                         fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: 11),
-                  const SpecialField(hint: 'Drop down here', icon: null),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {});
+                      showModal(context);
+                      setState(() {});
+                    },
+                    child: Container(
+                      width: 374,
+                      height: 52,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Resources.color.fillColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
+                          bottomLeft: Radius.circular(4),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          rowGen(),
+                          const Icon(Icons.keyboard_arrow_down),
+                        ],
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const SizedBox(width: 20),
                       TextButton(
-                        onPressed: () => Monitraka.mainAppKey.currentState!
-                            .pushNamed(AddFriends.id),
+                        onPressed: () => addFriendModal(context),
                         style: TextButton.styleFrom(
                             side: const BorderSide(
                                 color: Color.fromRGBO(19, 109, 49, 0.5)),
@@ -171,8 +170,7 @@ class _PrivateCommunityState extends State<PrivateCommunity> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () => Monitraka.mainAppKey.currentState!
-                            .pushNamed(Friends.id),
+                        onPressed: () => friendModal(context),
                         style: TextButton.styleFrom(
                             side: const BorderSide(
                                 color: Color.fromRGBO(19, 109, 49, 0.5)),
@@ -208,11 +206,121 @@ class _PrivateCommunityState extends State<PrivateCommunity> {
                     title: 'Create team',
                     textColor: Resources.color.cWhite,
                     bgColor: Resources.color.cGreen,
-                    btnAction: () => showModal(context),
+                    btnAction: () {},
                   ),
                 ],
               ),
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+showModal(context) {
+  return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+      ),
+      builder: (context) => const BudgetInfo());
+}
+
+class BudgetInfo extends StatefulWidget {
+  const BudgetInfo({Key? key}) : super(key: key);
+
+  @override
+  State<BudgetInfo> createState() => _BudgetInfoState();
+}
+
+class _BudgetInfoState extends State<BudgetInfo> {
+  bool check2 = false;
+  bool check3 = false;
+  bool check1 = false;
+  String title1 = 'Budget Amount';
+  String title2 = 'Budget Name';
+  String title3 = 'Budget Duration';
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(
+              'What do you want to make open\n '
+              ' to your team?',
+              style: TextStyle(
+                  color: Resources.color.cGreen,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            CheckboxListTile(
+              value: check1,
+              checkColor: Resources.color.cWhite,
+              activeColor: Resources.color.cGreen,
+              side: BorderSide(color: Resources.color.cGreen, width: 2),
+              onChanged: (val) {
+                setState(() {
+                  check1 = val!;
+                });
+              },
+              title: Text(title1),
+            ),
+            CheckboxListTile(
+              value: check2,
+              checkColor: Resources.color.cWhite,
+              activeColor: Resources.color.cGreen,
+              side: BorderSide(color: Resources.color.cGreen, width: 2),
+              onChanged: (val) {
+                setState(() {
+                  check2 = val!;
+                });
+              },
+              title: Text(title2),
+            ),
+            CheckboxListTile(
+              value: check3,
+              checkColor: Resources.color.cWhite,
+              activeColor: Resources.color.cGreen,
+              side: BorderSide(color: Resources.color.cGreen, width: 2),
+              onChanged: (val) {
+                setState(() {
+                  check3 = val!;
+                });
+              },
+              title: Text(title3),
+            ),
+            const SizedBox(height: 16),
+            Button(
+                title: 'Done',
+                textColor: Resources.color.cWhite,
+                bgColor: Resources.color.cGreen,
+                btnAction: () {
+                  Navigator.pop(context);
+                  if (check1 == true) {
+                    setState(() {
+                      select = title1;
+                      rowItem.add(containerGen(select));
+                    });
+                  } else if (check2 == true) {
+                    setState(() {
+                      select = title2;
+                      rowItem.add(containerGen(select));
+                    });
+                  } else if (check3 == true) {
+                    setState(() {
+                      select = title3;
+                      rowItem.add(containerGen(select));
+                    });
+                  } else {
+                    return null;
+                  }
+                })
           ],
         ),
       ),
