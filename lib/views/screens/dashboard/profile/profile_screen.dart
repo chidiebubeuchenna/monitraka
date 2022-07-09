@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/main.dart';
 import 'package:monitraka/res/res.dart';
+import 'package:monitraka/views/screens/dashboard/profile/modal_screens/profile_settings.dart';
+import 'package:monitraka/views/screens/dashboard/profile/modal_screens/security.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/widgets/tiles.dart';
 
 import '../../../../viewmodels/user_view_model.dart';
+import 'modal_screens/contact_us.dart';
+import 'modal_screens/password_settings.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const id = '/ProfileScreen';
@@ -119,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           color: Resources.color.bBlack,
                           offset: const Offset(7, 7),
                           blurRadius: 10.0,
-                        ), //
+                        ),
                       ],
                     ),
                     child: Row(
@@ -155,7 +159,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onChanged: (value) {
                             setState(() {
                               isSwitched = value;
-                              print(isSwitched);
                             });
                           },
                         )
@@ -165,14 +168,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              profileTile(Icons.manage_accounts, 'Profile Settings', () {}),
+              profileTile(Icons.manage_accounts, 'Profile Settings',
+                  () => profileSettings(context)),
               const SizedBox(height: 30),
               profileTile(Icons.safety_check_sharp, 'Security',
-                  () => Navigator.pushNamed(context, '/Security')),
+                  () => securityModal(context)),
               const SizedBox(height: 30),
-              profileTile(Icons.password, 'Password', () {}),
+              profileTile(Icons.password, 'Password',
+                  () => passwordSettingsModal(context)),
               const SizedBox(height: 30),
-              profileTile(Icons.call_rounded, 'Contact us', () {}),
+              profileTile(Icons.call_rounded, 'Contact us',
+                  () => contactUsModal(context)),
               const SizedBox(height: 30),
               profileTile(Icons.logout, 'Log out', showModal),
               const SizedBox(height: 10),

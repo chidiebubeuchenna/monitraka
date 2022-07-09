@@ -3,10 +3,6 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:monitraka/views/screens/dashboard/activity/communities/friends/add_friends_modal.dart';
-import 'package:monitraka/views/screens/dashboard/activity/communities/friends/friends_modal.dart';
-import 'package:monitraka/views/screens/dashboard/profile/security_screen.dart';
-
 import 'package:monitraka/views/screens/dashboard/tab_screen.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/views/screens/intro/on_board_screen.dart';
@@ -31,5 +27,4 @@ Map<String, WidgetBuilder> routes = {
   LetsGoScreen.id: (context) => const LetsGoScreen(),
   HomeScreen.id: (context) => const HomeScreen(),
   TabScreen.id: (context) => const TabScreen(),
-  SecurityScreen.id: (context) => const SecurityScreen(),
 };

@@ -5,8 +5,8 @@ import 'package:monitraka/widgets/app_bar.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/text_field.dart';
 
-import 'friends/add_friends_modal.dart';
-import 'friends/friends_modal.dart';
+import 'modal_screens/add_friends_modal.dart';
+import 'modal_screens/friends_modal.dart';
 
 String select = '';
 List<Widget> rowItem = [];

@@ -30,6 +30,7 @@ class CommonTextField extends StatelessWidget {
       validator: validator,
       controller: controller,
       obscureText: prov.visible,
+      cursorColor: Resources.color.headerText,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(left: 20),
         hintText: hint,

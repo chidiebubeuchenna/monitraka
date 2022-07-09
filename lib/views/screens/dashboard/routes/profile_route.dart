@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/profile/profile_screen.dart';
 
-import '../profile/security_screen.dart';
+import '../profile/modal_screens/security.dart';
 
 class ProfileNav extends StatefulWidget {
   const ProfileNav({Key? key}) : super(key: key);
