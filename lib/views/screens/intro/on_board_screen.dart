@@ -45,7 +45,7 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
       bottomSheet: Row(
         children: [
-          const SizedBox(width: 38),
+          const SizedBox(width: 24),
           TextButton(
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, HomeScreen.id),
@@ -81,7 +81,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     fontSize: 18,
                     fontWeight: FontWeight.w400)),
           ),
-          const SizedBox(width: 38),
+          const SizedBox(width: 24),
         ],
       ),
     );

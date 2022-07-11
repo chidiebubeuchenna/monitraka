@@ -29,7 +29,7 @@ class CommonTextField extends StatelessWidget {
     return TextFormField(
       validator: validator,
       controller: controller,
-      obscureText: prov.visible,
+      obscureText: obscureText,
       cursorColor: Resources.color.headerText,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(left: 20),
