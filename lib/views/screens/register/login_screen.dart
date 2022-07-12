@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   CommonTextField(
                     obscureText: true,
                     controller: _passwordController,
-                    hint: '* * * * * * * * * * * *',
+                    hint: '* * * * * * * * * * *',
                     validator: (val) {
                       if (_passwordController.text.isEmpty) {
                         return 'Password cannot be empty';
