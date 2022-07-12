@@ -89,6 +89,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           child: card))
                     ],
                   ),
+                  SizedBox(height: 5),
                   Text(
                     'Add a Bank Account',
                     style: TextStyle(
@@ -134,6 +135,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     )
                 ],
               ),
+                      SizedBox(height: 5),
                       Text(
                         'Create a New Wallet',
                         style: TextStyle(
@@ -184,6 +186,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         child: bitcoin))
                     ],
                   ),
+                  SizedBox(height: 5),
                   Text(
                     'Add a Crypto Wallet',
                     style: TextStyle(
