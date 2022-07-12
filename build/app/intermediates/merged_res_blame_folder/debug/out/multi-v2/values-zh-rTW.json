@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\VS\\monitraka\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
+            "outputFile": "C:\\Users\\pc\\MonitrakaApp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ayoola Adedayo\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

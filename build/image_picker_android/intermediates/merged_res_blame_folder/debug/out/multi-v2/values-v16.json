@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\VS\\monitraka\\build\\image_picker_android\\intermediates\\res\\merged\\debug\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\pc\\MonitrakaApp\\build\\image_picker_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ayoola Adedayo\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\VS\\monitraka\\build\\image_picker_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\pc\\MonitrakaApp\\build\\image_picker_android\\intermediates\\res\\merged\\debug\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ayoola Adedayo\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-2\\files-2.1\\8e86e615f21ac3758e97e94e18045107\\core-1.8.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

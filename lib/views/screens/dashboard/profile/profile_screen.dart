@@ -153,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Reminder'),
+                        Text('Reminders'),
                         Switch(
                           value: isSwitched,
                           onChanged: (value) {
@@ -168,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              profileTile(Icons.manage_accounts, 'Profile Settings',
+              profileTile(Icons.person, 'Profile Settings',
                   () => profileSettings(context)),
               const SizedBox(height: 30),
               profileTile(Icons.policy_outlined, 'Security',
@@ -180,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               profileTile(Icons.call_rounded, 'Contact us',
                   () => contactUsModal(context)),
               const SizedBox(height: 30),
-              profileTile(Icons.logout, 'Log out', showModal),
+              logoutTile(Icons.logout, 'Log out', showModal),
               const SizedBox(height: 10),
             ],
           ),

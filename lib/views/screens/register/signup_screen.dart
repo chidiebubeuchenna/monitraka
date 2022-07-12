@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
@@ -8,6 +10,7 @@ import 'package:monitraka/widgets/text_field.dart';
 import 'package:provider/provider.dart';
 
 import 'letsgo_screen.dart';
+import 'package:http/http.dart' as http;
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -85,11 +88,11 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             Column(
               children: [
-                itemOptions(0, 0, 'WhatsApp'),
+                itemOptions(0, 0, 'Whatsapp'),
                 itemOptions(1, 1, 'Twitter'),
                 itemOptions(2, 2, 'Instagram'),
                 itemOptions(3, 3, 'A friend'),
-                itemOptions(4, 4, 'Our team')
+                itemOptions(4, 4, 'Our Team')
               ],
             ),
             const SizedBox(height: 13),
@@ -257,6 +260,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       textColor: Resources.color.cWhite,
                       bgColor: Resources.color.cGreen,
                       btnAction: () {
+                        
+                        RegistrationUser();
                         //Uncomment this to see the what it does
                         // if (_formKey.currentState!.validate()) {
                         //   value.userName(_nameController.text,
@@ -305,5 +310,29 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
       ),
     );
+  }
+
+  Future RegistrationUser() async {
+    var APIURL = "https://monitraka.herokuapp.com/api/register";
+
+    Map mapeddata = {
+      'fullname':_nameController.text,
+      'email':_emailController.text,
+      'phone_number':_phoneController.text,
+      'password':_passwordController.text,
+      'confirm_password':_cPasswordController.text,
+      'how_did_you_hear_about_us':itemValue,
+    };
+
+    print("JSON DATA: ${mapeddata}");
+
+    http.Response response = await http.post(Uri.parse(APIURL), body: mapeddata);
+
+    // http.Response response = await http.post(apiurl, body:mapeddata);
+
+    var data = jsonDecode(response.body);
+
+    print("DATA: ${data}");
+
   }
 }
