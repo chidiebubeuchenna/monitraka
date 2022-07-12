@@ -42,6 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () =>
                         Navigator.pushNamed(context, LoginScreen.id),
                     style: ElevatedButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            bottomLeft: Radius.circular(4)),
+                      ),
                       side: const BorderSide(width: 1.5, color: Colors.yellow),
                       elevation: 0,
                       primary: Resources.color.cGreen,
@@ -57,6 +64,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () =>
                         Navigator.pushNamed(context, SignupScreen.id),
                     style: ElevatedButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                            bottomLeft: Radius.circular(4)),
+                      ),
                       side:
                           BorderSide(width: 1.5, color: Resources.color.cGreen),
                       elevation: 0,

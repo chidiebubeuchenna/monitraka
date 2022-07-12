@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:monitraka/views/screens/dashboard/profile/contact_us.dart';
+// import 'package:monitraka/views/screens/dashboard/profile/password_settings.dart';
 import 'package:monitraka/views/screens/dashboard/profile/profile_screen.dart';
+// import 'package:monitraka/views/screens/dashboard/profile/profile_settings.dart';
 
 import '../profile/modal_screens/security.dart';
 
@@ -26,6 +29,12 @@ class _ProfileNavState extends State<ProfileNav> {
                 return const ProfileScreen();
               case '/Security':
                 return const SecurityScreen();
+              // case '/ProfileSettings':
+              // //   return const ProfileSettings();
+              // //  case '/PasswordSettings':
+              // //   return const PasswordSettings();
+              // // case '/ContactUs':
+              // //   return const ContactUs();
             }
             return const ProfileScreen();
           },
