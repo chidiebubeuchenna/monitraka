@@ -60,10 +60,7 @@ class _ContactUsState extends State<ContactUs> {
                     fontSize: 14),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                  // obscureText: false,
-                  controller: _phoneController,
-                  hint: '07055952078'),
+              CommonText(controller: _phoneController, hint: '07055952078'),
               const SizedBox(height: 20),
               Text(
                 'Email Address',
@@ -73,10 +70,8 @@ class _ContactUsState extends State<ContactUs> {
                     fontSize: 14),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                  // obscureText: false,
-                  controller: _emailController,
-                  hint: 'monitraka@gmail.com'),
+              CommonText(
+                  controller: _emailController, hint: 'monitraka@gmail.com'),
               const SizedBox(height: 30),
               profileTile(Icons.facebook, 'Twitter', () {}),
               const SizedBox(height: 30),

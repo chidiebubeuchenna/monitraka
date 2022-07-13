@@ -64,7 +64,7 @@ class _OnBoardingState extends State<OnBoarding> {
             currentPageNotifier: pageNotifier,
             itemCount: 4,
           ),
-          const SizedBox(width: 60),
+          const SizedBox(width: 32),
           TextButton(
             onPressed: () {
               if (pageNotifier.value == 3) {

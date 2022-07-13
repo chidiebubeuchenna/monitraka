@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:monitraka/providers/auth.dart';
 import 'package:monitraka/res/res.dart';
@@ -8,6 +10,7 @@ import 'package:monitraka/widgets/text_field.dart';
 import 'package:provider/provider.dart';
 
 import 'letsgo_screen.dart';
+import 'package:http/http.dart' as http;
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -85,11 +88,11 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             Column(
               children: [
-                itemOptions(0, 0, 'WhatsApp'),
+                itemOptions(0, 0, 'Whatsapp'),
                 itemOptions(1, 1, 'Twitter'),
                 itemOptions(2, 2, 'Instagram'),
                 itemOptions(3, 3, 'A friend'),
-                itemOptions(4, 4, 'Our team')
+                itemOptions(4, 4, 'Our Team')
               ],
             ),
             const SizedBox(height: 13),
@@ -153,32 +156,28 @@ class _SignupScreenState extends State<SignupScreen> {
                   //Full Name field
                   Text('Full Name', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                      // obscureText: false,
+                  CommonText(
                       controller: _nameController,
                       hint: 'Enter your full name'),
                   const SizedBox(height: 16),
                   //Email field
                   Text('Email', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                      // obscureText: false,
+                  CommonText(
                       controller: _emailController,
                       hint: 'Enter your email address'),
                   const SizedBox(height: 16),
                   //Phone Number field
                   Text('Phone Number', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                      // obscureText: false,
+                  CommonText(
                       controller: _phoneController,
                       hint: 'Enter your phone number'),
                   const SizedBox(height: 16),
                   //Password field
                   Text('Password', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    // obscureText: true,
+                  PasswordTextField(
                     controller: _passwordController,
                     hint: 'Password',
                     validator: (val) {
@@ -194,8 +193,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   //Confirm Password field
                   Text('Confirm Password', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    // obscureText: true,
+                  PasswordTextField(
                     controller: _cPasswordController,
                     hint: 'Re-type your password',
                     validator: (val) {
@@ -257,6 +255,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       textColor: Resources.color.cWhite,
                       bgColor: Resources.color.cGreen,
                       btnAction: () {
+                        registrationUser();
                         //Uncomment this to see the what it does
                         // if (_formKey.currentState!.validate()) {
                         //   value.userName(_nameController.text,
@@ -305,5 +304,28 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
       ),
     );
+  }
+
+  Future registrationUser() async {
+    var APIURL = "https://monitraka.herokuapp.com/api/register";
+
+    Map<String, String> userData = {
+      'full_name': _nameController.text,
+      'email': _emailController.text,
+      'phone_number': _phoneController.text,
+      'password': _passwordController.text,
+      'confirm_password': _cPasswordController.text,
+      'how_did_you_hear_about_us': itemValue,
+    };
+
+    // print("JSON DATA: ${userData}");
+
+    http.Response response = await http.post(Uri.parse(APIURL), body: userData);
+
+    // http.Response response = await http.post(apiurl, body:userData);
+
+    var data = jsonDecode(response.body);
+
+    print("DATA: ${data}");
   }
 }

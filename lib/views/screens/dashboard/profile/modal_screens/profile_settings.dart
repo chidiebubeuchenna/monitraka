@@ -112,11 +112,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: 'Tom Ogbu',
-                // obscureText: false,
-                controller: _nameController,
-              ),
+              CommonText(hint: 'Tom Ogbu', controller: _nameController),
               const SizedBox(height: 16),
               //Email field
               Text(
@@ -127,11 +123,8 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: 'abcdxyz@gmail.com',
-                // obscureText: false,
-                controller: _emailController,
-              ),
+              CommonText(
+                  hint: 'abcdxyz@gmail.com', controller: _emailController),
               const SizedBox(height: 16),
               //Phone field
               Text(
@@ -142,11 +135,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: '07046582213',
-                // obscureText: false,
-                controller: _phoneController,
-              ),
+              CommonText(hint: '07046582213', controller: _phoneController),
               const SizedBox(height: 35),
               Button(
                   title: 'Done',

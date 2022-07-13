@@ -7,6 +7,7 @@ import 'package:monitraka/views/screens/register/signup_screen.dart';
 import 'package:monitraka/widgets/buttons.dart';
 import 'package:monitraka/widgets/text_field.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  // bool isRememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   Text('Email', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    // obscureText: false,
+                  CommonText(
                     controller: _emailController,
                     hint: 'Johndoe4599@gmail.com',
                     validator: (val) {
@@ -71,10 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 16),
                   Text('Password', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    // obscureText: true,
+                  PasswordTextField(
                     controller: _passwordController,
-                    hint: '* * * * * * * * * * * *',
+                    hint: '* * * * * * * * * * *',
                     validator: (val) {
                       if (_passwordController.text.isEmpty) {
                         return 'Password cannot be empty';
@@ -106,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     bgColor: Resources.color.cGreen,
                     textColor: Resources.color.cWhite,
                     btnAction: () {
+                      // login();
                       // if (_formKey.currentState!.validate()) {
                       //   Navigator.pushNamed(context, TabScreen.id);
                       // }
@@ -173,5 +174,26 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> login() async {
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      var response = await http.post(
+          Uri.parse('https://monitraka.herokuapp.com/api/login'),
+          body: ({
+            'email': _emailController.text,
+            'password': _passwordController.text
+          }));
+      if (response.statusCode == 200) {
+        Navigator.pushNamed(context, TabScreen.id);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Invalid Credentials')));
+      }
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Blank Field(s) not allowed')));
+    }
   }
 }

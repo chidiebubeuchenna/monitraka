@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:monitraka/views/screens/dashboard/routes/activity_route.dart';
 import 'package:monitraka/views/screens/dashboard/routes/budget_route.dart';
 import 'package:monitraka/views/screens/dashboard/routes/dashboard_routes.dart';
@@ -33,13 +32,13 @@ class _TabScreenState extends State<TabScreen> {
     profileKey
   ];
 
-  Future<bool> _systemBackButtonPressed() {
+  Future<bool> _systemBackButtonPressed() async {
     if (_navigatorKeys[_selectedItem].currentState!.canPop()) {
       _navigatorKeys[_selectedItem]
           .currentState!
           .pop(_navigatorKeys[_selectedItem].currentContext);
     } else {
-      SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+      return false;
     }
     throw {};
   }

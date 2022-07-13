@@ -70,10 +70,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                  // obscureText: false,
-                  controller: _oPasswordController,
-                  hint: ''),
+              PasswordTextField(controller: _oPasswordController, hint: ''),
               const SizedBox(height: 30),
               Text(
                 'New Password',
@@ -83,10 +80,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                  // obscureText: false,
-                  controller: _passwordController,
-                  hint: ''),
+              PasswordTextField(controller: _passwordController, hint: ''),
               const SizedBox(height: 30),
               Text(
                 'Confirm New Password',
@@ -96,10 +90,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
                     color: Resources.color.rgText),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                  // obscureText: false,
-                  controller: _cPasswordController,
-                  hint: ''),
+              PasswordTextField(controller: _cPasswordController, hint: ''),
               const SizedBox(height: 30),
               Button(
                 title: 'Create Password',
