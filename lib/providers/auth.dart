@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Auth extends ChangeNotifier {
-  bool _visible = true;
+  bool _visible = false;
   bool _checkBox = false;
   bool _modalCheckBox = false;
   String _name = '';

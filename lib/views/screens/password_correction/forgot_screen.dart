@@ -97,7 +97,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           Text('Email', style: titleStyle),
                           const SizedBox(height: 15),
                           CommonTextField(
-                              obscureText: false,
+                              // obscureText: false,
                               controller: _emailController,
                               hint: 'Johndoe4599@gmail.com')
                         ],
@@ -108,7 +108,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           Text('Phone Number', style: titleStyle),
                           const SizedBox(height: 15),
                           CommonTextField(
-                              obscureText: false,
+                              // obscureText: false,
                               controller: _phoneController,
                               hint: '08011448899'),
                         ],

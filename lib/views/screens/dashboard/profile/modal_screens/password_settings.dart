@@ -71,7 +71,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
               ),
               const SizedBox(height: 15),
               CommonTextField(
-                  obscureText: false,
+                  // obscureText: false,
                   controller: _oPasswordController,
                   hint: ''),
               const SizedBox(height: 30),
@@ -84,7 +84,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
               ),
               const SizedBox(height: 15),
               CommonTextField(
-                  obscureText: false,
+                  // obscureText: false,
                   controller: _passwordController,
                   hint: ''),
               const SizedBox(height: 30),
@@ -97,7 +97,7 @@ class _PasswordSettingsState extends State<PasswordSettings> {
               ),
               const SizedBox(height: 15),
               CommonTextField(
-                  obscureText: false,
+                  // obscureText: false,
                   controller: _cPasswordController,
                   hint: ''),
               const SizedBox(height: 30),

@@ -61,7 +61,7 @@ class _ContactUsState extends State<ContactUs> {
               ),
               const SizedBox(height: 15),
               CommonTextField(
-                  obscureText: false,
+                  // obscureText: false,
                   controller: _phoneController,
                   hint: '07055952078'),
               const SizedBox(height: 20),
@@ -74,7 +74,7 @@ class _ContactUsState extends State<ContactUs> {
               ),
               const SizedBox(height: 15),
               CommonTextField(
-                  obscureText: false,
+                  // obscureText: false,
                   controller: _emailController,
                   hint: 'monitraka@gmail.com'),
               const SizedBox(height: 30),

@@ -154,7 +154,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text('Full Name', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                      obscureText: false,
+                      // obscureText: false,
                       controller: _nameController,
                       hint: 'Enter your full name'),
                   const SizedBox(height: 16),
@@ -162,7 +162,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text('Email', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                      obscureText: false,
+                      // obscureText: false,
                       controller: _emailController,
                       hint: 'Enter your email address'),
                   const SizedBox(height: 16),
@@ -170,7 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text('Phone Number', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                      obscureText: false,
+                      // obscureText: false,
                       controller: _phoneController,
                       hint: 'Enter your phone number'),
                   const SizedBox(height: 16),
@@ -178,7 +178,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text('Password', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                    obscureText: true,
+                    // obscureText: true,
                     controller: _passwordController,
                     hint: 'Password',
                     validator: (val) {
@@ -195,7 +195,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text('Confirm Password', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                    obscureText: true,
+                    // obscureText: true,
                     controller: _cPasswordController,
                     hint: 'Re-type your password',
                     validator: (val) {

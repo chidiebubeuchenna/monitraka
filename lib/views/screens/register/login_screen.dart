@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text('Email', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                    obscureText: false,
+                    // obscureText: false,
                     controller: _emailController,
                     hint: 'Johndoe4599@gmail.com',
                     validator: (val) {
@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text('Password', style: titleStyle),
                   const SizedBox(height: 15),
                   CommonTextField(
-                    obscureText: true,
+                    // obscureText: true,
                     controller: _passwordController,
                     hint: '* * * * * * * * * * * *',
                     validator: (val) {

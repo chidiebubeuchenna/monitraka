@@ -114,7 +114,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               const SizedBox(height: 15),
               CommonTextField(
                 hint: 'Tom Ogbu',
-                obscureText: false,
+                // obscureText: false,
                 controller: _nameController,
               ),
               const SizedBox(height: 16),
@@ -129,7 +129,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               const SizedBox(height: 15),
               CommonTextField(
                 hint: 'abcdxyz@gmail.com',
-                obscureText: false,
+                // obscureText: false,
                 controller: _emailController,
               ),
               const SizedBox(height: 16),
@@ -144,7 +144,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               const SizedBox(height: 15),
               CommonTextField(
                 hint: '07046582213',
-                obscureText: false,
+                // obscureText: false,
                 controller: _phoneController,
               ),
               const SizedBox(height: 35),

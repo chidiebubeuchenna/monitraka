@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/auth.dart';
 
 TextStyle titleStyle = TextStyle(
   color: Resources.color.headerText,
@@ -10,36 +7,43 @@ TextStyle titleStyle = TextStyle(
   fontSize: 14,
 );
 
-class CommonTextField extends StatelessWidget {
+class CommonTextField extends StatefulWidget {
   final String hint;
-  final bool obscureText;
+  bool obscureText = false;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  const CommonTextField({
+  CommonTextField({
     Key? key,
-    required this.obscureText,
     required this.controller,
     this.validator,
     required this.hint,
   }) : super(key: key);
 
   @override
+  State<CommonTextField> createState() => _CommonTextFieldState();
+}
+
+class _CommonTextFieldState extends State<CommonTextField> {
+  @override
   Widget build(BuildContext context) {
-    final prov = Provider.of<Auth>(context);
     return TextFormField(
-      validator: validator,
-      controller: controller,
-      obscureText: obscureText,
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: widget.obscureText,
       cursorColor: Resources.color.headerText,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(left: 20),
-        hintText: hint,
+        hintText: widget.hint,
         filled: true,
         fillColor: Resources.color.fillColor,
-        suffixIcon: obscureText
+        suffixIcon: widget.obscureText
             ? IconButton(
-                onPressed: () => prov.show(),
-                icon: prov.visible
+                onPressed: () {
+                  setState(() {
+                    widget.obscureText = !widget.obscureText;
+                  });
+                },
+                icon: widget.obscureText
                     ? Icon(Icons.visibility_off, color: Resources.color.cBlack)
                     : Icon(Icons.visibility, color: Resources.color.cBlack))
             : null,
