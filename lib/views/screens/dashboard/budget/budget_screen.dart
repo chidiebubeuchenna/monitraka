@@ -15,75 +15,73 @@ class _BudgetState extends State<Budget> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Budgets',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w600,
+                        color: Resources.color.cBlack),
                   ),
-                  SizedBox(height: 5),
                   Text(
                     'Add a budget plan',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Resources.color.headerText),
                   ),
                 ],
               ),
-              SizedBox(height: 5),
-              Center(
-                child: Image.asset(Resources.iStrings.moneyStairs),
-              ),
-              SizedBox(
-                height: 40,
-              ),
+              Center(child: Image.asset(Resources.iStrings.moneyStairs)),
+              const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => customPlan()),
-                      );
+                      Navigator.pushNamed(context, CustomPlan.id);
                     },
                     child: Container(
                       height: 146,
                       width: 148,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(8),
-                              topRight: Radius.circular(8),
-                              bottomLeft: Radius.circular(4),
-                              bottomRight: Radius.circular(8)),
-                          color: Color.fromRGBO(239, 93, 168, 0.3),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.08),
-                            ),
-                          ]),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                            bottomLeft: Radius.circular(4),
+                            bottomRight: Radius.circular(8)),
+                        color: Resources.color.cPink,
+                        boxShadow: const [
+                          BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.08)),
+                        ],
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Icon(Icons.event_note_outlined,
+                              color: Color(0xffFF0083)),
+                          const Text(
                             'Custom plans',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              color: Color.fromRGBO(255, 0, 131, 1),
+                              color: Color(0xffFF0083),
                             ),
-                          ),
-                          SizedBox(
-                            height: 7,
                           ),
                           Text(
                             'We have already made templates designed to suit your needs',
                             style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.w400),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                                color: Resources.color.headerText),
                           ),
                         ],
                       ),
@@ -93,50 +91,55 @@ class _BudgetState extends State<Budget> {
                     height: 146,
                     width: 148,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                            bottomLeft: Radius.circular(4),
-                            bottomRight: Radius.circular(8)),
-                        color: Color.fromRGBO(93, 95, 239, 0.2),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.08),
-                          ),
-                        ]),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                          bottomLeft: Radius.circular(4),
+                          bottomRight: Radius.circular(8)),
+                      color: Resources.color.cBlue,
+                      boxShadow: const [
+                        BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.08)),
+                      ],
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 18),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Icon(Icons.folder_special_outlined,
+                            color: Color(0xff5D5FEF)),
+                        const Text(
                           'Create my plan',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(93, 95, 239, 1),
+                            color: Color(0xff5D5FEF),
                           ),
-                        ),
-                        SizedBox(
-                          height: 7,
                         ),
                         Text(
                           'Create a plan that can work for you.We got you!',
                           style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                              color: Resources.color.headerText),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 45,
-              ),
+              const SizedBox(height: 22.5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.info),
-                  Text(' Budgets you create will be added here.'),
+                  const Icon(Icons.info_outline, color: Colors.blue),
+                  Text(
+                    ' Budgets you create will be added here.',
+                    style: TextStyle(
+                        color: Resources.color.headerText,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300),
+                  ),
                 ],
               )
             ],

@@ -130,6 +130,7 @@ class SpecialField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      cursorColor: Resources.color.headerText,
       decoration: InputDecoration(
         prefixIcon: icon,
         contentPadding: const EdgeInsets.only(left: 20),

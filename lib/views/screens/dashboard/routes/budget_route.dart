@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/budget/budget_screen.dart';
+import 'package:monitraka/views/screens/dashboard/budget/custom_plan.dart';
 
 class BudgetNav extends StatefulWidget {
   const BudgetNav({Key? key}) : super(key: key);
@@ -22,6 +23,9 @@ class _BudgetNavState extends State<BudgetNav> {
             switch (settings.name) {
               case '/':
                 return const Budget();
+
+              case '/CustomPlan':
+                return const CustomPlan();
             }
             return const Budget();
           },
