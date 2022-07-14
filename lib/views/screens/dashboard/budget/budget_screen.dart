@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/views/screens/dashboard/budget/custom_plan.dart';
 
+import '../../../../main.dart';
+
 class Budget extends StatefulWidget {
+  static const id = '/Budget';
   const Budget({Key? key}) : super(key: key);
 
   @override
@@ -45,7 +48,8 @@ class _BudgetState extends State<Budget> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, CustomPlan.id);
+                      Monitraka.mainAppKey.currentState!
+                          .pushNamed(CustomPlan.id);
                     },
                     child: Container(
                       height: 146,

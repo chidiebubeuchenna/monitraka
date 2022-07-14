@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../res/res.dart';
 
 class WalletScreen extends StatefulWidget {
+  static const id = '/Wallet';
   const WalletScreen({Key? key}) : super(key: key);
 
   @override

@@ -20,12 +20,32 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  // bool isRememberMe = false;
 
   @override
   Widget build(BuildContext context) {
     final prov = Provider.of<Auth>(context);
     final formKey = GlobalKey<FormState>();
+    Future<void> login() async {
+      if (_emailController.text.isNotEmpty &&
+          _passwordController.text.isNotEmpty) {
+        var response = await http.post(
+            Uri.parse('https://monitraka.herokuapp.com/api/login'),
+            body: ({
+              'email': _emailController.text,
+              'password': _passwordController.text
+            }));
+        if (response.statusCode == 200) {
+          Navigator.pushNamed(context, TabScreen.id);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Invalid Credentials')));
+        }
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Blank Field(s) not allowed')));
+      }
+    }
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -174,26 +194,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> login() async {
-    if (_emailController.text.isNotEmpty &&
-        _passwordController.text.isNotEmpty) {
-      var response = await http.post(
-          Uri.parse('https://monitraka.herokuapp.com/api/login'),
-          body: ({
-            'email': _emailController.text,
-            'password': _passwordController.text
-          }));
-      if (response.statusCode == 200) {
-        Navigator.pushNamed(context, TabScreen.id);
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Invalid Credentials')));
-      }
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Blank Field(s) not allowed')));
-    }
   }
 }

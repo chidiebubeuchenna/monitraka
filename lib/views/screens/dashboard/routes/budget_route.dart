@@ -3,6 +3,7 @@ import 'package:monitraka/views/screens/dashboard/budget/budget_screen.dart';
 import 'package:monitraka/views/screens/dashboard/budget/custom_plan.dart';
 
 class BudgetNav extends StatefulWidget {
+  static const id = '/BudgetNav';
   const BudgetNav({Key? key}) : super(key: key);
 
   @override
@@ -21,10 +22,9 @@ class _BudgetNavState extends State<BudgetNav> {
           settings: settings,
           builder: (BuildContext context) {
             switch (settings.name) {
-              case '/':
+              case Budget.id:
                 return const Budget();
-
-              case '/CustomPlan':
+              case CustomPlan.id:
                 return const CustomPlan();
             }
             return const Budget();

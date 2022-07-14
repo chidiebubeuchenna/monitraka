@@ -67,7 +67,7 @@ class _CustomPlanState extends State<CustomPlan> {
               const SpecialField(hint: 'Search', icon: Icon(Icons.search)),
               const SizedBox(height: 20),
               SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.563,
+                  height: MediaQuery.of(context).size.height * 0.63,
                   child: const PlanTiles())
             ],
           ),

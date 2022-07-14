@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:monitraka/views/screens/dashboard/profile/profile_screen.dart';
 import 'package:monitraka/views/screens/dashboard/routes/activity_route.dart';
 import 'package:monitraka/views/screens/dashboard/routes/budget_route.dart';
 import 'package:monitraka/views/screens/dashboard/routes/dashboard_routes.dart';
-import 'package:monitraka/views/screens/dashboard/routes/profile_route.dart';
+
 import 'package:monitraka/views/screens/dashboard/routes/wallet_route.dart';
 
 import '../../../res/res.dart';
@@ -23,25 +25,26 @@ class _TabScreenState extends State<TabScreen> {
     const ActivityNav(),
     const BudgetNav(),
     const WalletNav(),
-    const ProfileNav()
+    const ProfileScreen()
   ];
   final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     dashboardKey,
     activityKey,
     budgetKey,
     walletKey,
-    profileKey
   ];
 
-  Future<bool> _systemBackButtonPressed() {
-    if (_navigatorKeys[_selectedItem].currentState!.canPop()) {
-      _navigatorKeys[_selectedItem]
-          .currentState!
-          .pop(_navigatorKeys[_selectedItem].currentContext);
-    } else {
-      SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
-    }
-    throw {};
+  Future<bool> _systemBackButtonPressed() async {
+    throw {
+      if (_navigatorKeys[_selectedItem].currentState!.canPop())
+        {
+          _navigatorKeys[_selectedItem]
+              .currentState!
+              .pop(_navigatorKeys[_selectedItem].currentContext)
+        }
+      else
+        {SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop')}
+    };
   }
 
   @override
@@ -49,7 +52,7 @@ class _TabScreenState extends State<TabScreen> {
     return WillPopScope(
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
-        body: pages.elementAt(_selectedItem),
+        body: pages[_selectedItem],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedItem,
           onTap: (int index) {

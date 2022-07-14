@@ -4,6 +4,7 @@ import '../../../../../../res/res.dart';
 
 friendProfileModal(BuildContext context) {
   return showModalBottomSheet(
+    useRootNavigator: true,
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
@@ -16,6 +17,7 @@ friendProfileModal(BuildContext context) {
 
 unFriendModal(context) {
   return showModalBottomSheet(
+    useRootNavigator: true,
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
@@ -118,11 +120,11 @@ class _FriendProfileState extends State<FriendProfile> {
             children: [
               IconButton(
                   onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios)),
-              Text('KayBoy odinaka'),
+                  icon: const Icon(Icons.arrow_back_ios)),
+              const Text('KayBoy odinaka'),
               IconButton(
                   onPressed: () => unFriendModal(context),
-                  icon: Icon(Icons.menu))
+                  icon: const Icon(Icons.menu))
             ],
           ),
           const Divider(thickness: 1),
