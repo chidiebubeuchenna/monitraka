@@ -4,6 +4,7 @@ import '../../../../../../widgets/text_field.dart';
 
 addFriendModal(BuildContext context) {
   return showModalBottomSheet(
+    useRootNavigator: true,
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(

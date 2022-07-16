@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 
-class planTiles extends StatefulWidget {
+class PlanTiles extends StatefulWidget {
+  const PlanTiles({Key? key}) : super(key: key);
+
   @override
-  State<planTiles> createState() => _planTilesState();
+  State<PlanTiles> createState() => _PlanTilesState();
 }
 
-class _planTilesState extends State<planTiles> {
+class _PlanTilesState extends State<PlanTiles> {
   bool isChecked = false;
-
   List<Plan> plans = [
     Plan(name: 'Food'),
     Plan(name: 'Shopping'),
@@ -30,8 +31,8 @@ class _planTilesState extends State<planTiles> {
               height: 46,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
+                color: Resources.color.cWhite,
+                boxShadow: const [
                   BoxShadow(
                     color: Color.fromRGBO(0, 0, 0, 0.03),
                   ),
@@ -44,7 +45,7 @@ class _planTilesState extends State<planTiles> {
                   fillColor:
                       MaterialStateProperty.resolveWith((_) => Colors.white),
                   side: MaterialStateBorderSide.resolveWith(
-                    (_) => BorderSide(color: Resources.color.cGreen),
+                    (_) => BorderSide(color: Resources.color.cGreen, width: 3),
                   ),
                   value: plans[index].isDone,
                   onChanged: (val) {
@@ -55,7 +56,7 @@ class _planTilesState extends State<planTiles> {
                 ),
               ),
             ),
-            SizedBox(height: 27),
+            const SizedBox(height: 27),
           ],
         );
       },

@@ -78,13 +78,23 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   contentPadding: const EdgeInsets.only(left: 20),
                   filled: true,
                   fillColor: Resources.color.fillColor,
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(4),
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Resources.color.cGreen),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(4),
+                    ),
                   ),
                 ),
               ),
@@ -96,8 +106,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         children: [
                           Text('Email', style: titleStyle),
                           const SizedBox(height: 15),
-                          CommonTextField(
-                              obscureText: false,
+                          CommonText(
                               controller: _emailController,
                               hint: 'Johndoe4599@gmail.com')
                         ],
@@ -107,8 +116,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         children: [
                           Text('Phone Number', style: titleStyle),
                           const SizedBox(height: 15),
-                          CommonTextField(
-                              obscureText: false,
+                          PasswordTextField(
                               controller: _phoneController,
                               hint: '08011448899'),
                         ],

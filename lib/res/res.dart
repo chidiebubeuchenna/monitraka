@@ -1,4 +1,4 @@
-import 'package:monitraka/res/colors/reg_color.dart';
+import 'package:monitraka/res/colors/app_color.dart';
 import 'package:monitraka/res/strings/images_string.dart';
 import 'package:monitraka/res/strings/intro_string.dart';
 import 'package:monitraka/res/strings/profile_string.dart';

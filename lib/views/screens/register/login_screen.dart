@@ -20,12 +20,32 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  // bool isRememberMe = false;
 
   @override
   Widget build(BuildContext context) {
     final prov = Provider.of<Auth>(context);
     final formKey = GlobalKey<FormState>();
+    Future<void> login() async {
+      if (_emailController.text.isNotEmpty &&
+          _passwordController.text.isNotEmpty) {
+        var response = await http.post(
+            Uri.parse('https://monitraka.herokuapp.com/api/login'),
+            body: ({
+              'email': _emailController.text,
+              'password': _passwordController.text
+            }));
+        if (response.statusCode == 200) {
+          Navigator.pushNamed(context, TabScreen.id);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Invalid Credentials')));
+        }
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Blank Field(s) not allowed')));
+      }
+    }
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -59,8 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   Text('Email', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    obscureText: false,
+                  CommonText(
                     controller: _emailController,
                     hint: 'Johndoe4599@gmail.com',
                     validator: (val) {
@@ -73,8 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 16),
                   Text('Password', style: titleStyle),
                   const SizedBox(height: 15),
-                  CommonTextField(
-                    obscureText: true,
+                  PasswordTextField(
                     controller: _passwordController,
                     hint: '* * * * * * * * * * *',
                     validator: (val) {
@@ -92,15 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Checkbox(
                           value: prov.checkBox,
                           onChanged: (value) => prov.box(),
-                          activeColor: Resources.color.cGreen
-                          // value: isRememberMe,
-                          // activeColor: Resources.color.cGreen,
-                          // onChanged: (value) {
-                          //   setState(() {
-                          //     isRememberMe = value!;
-                          //   });
-                          // },
-                      ),
+                          activeColor: Resources.color.cGreen),
                       Text(
                         "Remember me",
                         style: TextStyle(
@@ -116,11 +126,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     bgColor: Resources.color.cGreen,
                     textColor: Resources.color.cWhite,
                     btnAction: () {
-                      login();
+                      // login();
                       // if (_formKey.currentState!.validate()) {
                       //   Navigator.pushNamed(context, TabScreen.id);
                       // }
-                      // Navigator.pushNamed(context, TabScreen.id);
+                      Navigator.pushNamed(context, TabScreen.id);
                     },
                   ),
                   const SizedBox(height: 20),
@@ -184,27 +194,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> login() async {
-    if (_emailController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
-      var response =
-      await http.post(Uri.parse('https://monitraka.herokuapp.com/api/login'),
-          body: ({
-            'email': _emailController.text,
-            'password': _passwordController.text
-          }));
-      if (response.statusCode == 200) {
-        Navigator.pushNamed(context, TabScreen.id);
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(
-            content: Text('Invalid Credentials')));
-      }
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(
-          content: Text('Blank Field(s) not allowed')));
-    }
   }
 }
