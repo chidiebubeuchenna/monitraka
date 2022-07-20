@@ -15,6 +15,7 @@ import 'package:monitraka/views/screens/register/letsgo_screen.dart';
 import 'package:monitraka/views/screens/register/login_screen.dart';
 import 'package:monitraka/views/screens/register/signup_screen.dart';
 import 'package:monitraka/views/screens/dashboard/wallet/wallet_screen.dart';
+import 'package:monitraka/views/screens/dashboard/bank_account.dart';
 
 Map<String, WidgetBuilder> routes = {
   SplashScreen.id: (context) => const SplashScreen(),
@@ -29,4 +30,5 @@ Map<String, WidgetBuilder> routes = {
   HomeScreen.id: (context) => const HomeScreen(),
   TabScreen.id: (context) => const TabScreen(),
   WalletScreen.id: (context) => const WalletScreen(),
+  BankAccounts.id: (context) => const BankAccounts(),
 };
