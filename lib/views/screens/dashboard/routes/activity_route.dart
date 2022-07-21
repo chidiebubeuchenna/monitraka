@@ -4,6 +4,7 @@ import 'package:monitraka/views/screens/dashboard/activity/communities/join_comm
 import 'package:monitraka/views/screens/dashboard/activity/communities/private_comm.dart';
 
 class ActivityNav extends StatefulWidget {
+  static const id = '/ActivityNav';
   const ActivityNav({Key? key}) : super(key: key);
 
   @override
@@ -22,13 +23,13 @@ class _ActivityNavState extends State<ActivityNav> {
           settings: settings,
           builder: (BuildContext context) {
             switch (settings.name) {
-              case '/':
+              case ActivityScreen.id:
                 return const ActivityScreen();
 
-              case '/JoinCommunity':
+              case JoinCommunity.id:
                 return const JoinCommunity();
 
-              case '/PrivateCommunity':
+              case PrivateCommunity.id:
                 return const PrivateCommunity();
             }
             return const ActivityScreen();

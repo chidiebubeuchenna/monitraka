@@ -9,6 +9,7 @@ String friendName = 'Kayboy Odinaka';
 
 friendModal(BuildContext context) {
   return showModalBottomSheet(
+      useRootNavigator: true,
       isScrollControlled: true,
       context: context,
       shape: const RoundedRectangleBorder(

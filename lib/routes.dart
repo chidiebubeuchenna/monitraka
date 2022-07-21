@@ -3,6 +3,8 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:monitraka/views/screens/dashboard/budget/custom_plan.dart';
+import 'package:monitraka/views/screens/dashboard/profile/profile_screen.dart';
 import 'package:monitraka/views/screens/dashboard/tab_screen.dart';
 import 'package:monitraka/views/screens/intro/home_screen.dart';
 import 'package:monitraka/views/screens/intro/on_board_screen.dart';
@@ -17,6 +19,7 @@ import 'package:monitraka/views/screens/register/signup_screen.dart';
 import 'package:monitraka/views/screens/dashboard/wallet/wallet_screen.dart';
 import 'package:monitraka/views/screens/dashboard/bank_account.dart';
 
+
 Map<String, WidgetBuilder> routes = {
   SplashScreen.id: (context) => const SplashScreen(),
   OnBoarding.id: (context) => const OnBoarding(),
@@ -29,6 +32,11 @@ Map<String, WidgetBuilder> routes = {
   LetsGoScreen.id: (context) => const LetsGoScreen(),
   HomeScreen.id: (context) => const HomeScreen(),
   TabScreen.id: (context) => const TabScreen(),
+
   WalletScreen.id: (context) => const WalletScreen(),
   BankAccounts.id: (context) => const BankAccounts(),
+
+  ProfileScreen.id: (context) => const ProfileScreen(),
+  CustomPlan.id: (context) => const CustomPlan(),
+
 };
