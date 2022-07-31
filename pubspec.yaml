@@ -73,3 +73,9 @@ flutter:
     - family: Economica
       fonts:
         - asset: assets/fonts/Economica-Regular.ttf
+        
+    - family: CustomIcons
+      fonts:
+            - asset: assets/icons/Instagram.ttf
+            - asset: assets/icons/Twitter.ttf
+            - asset: assets/icons/Linkedin.ttf
