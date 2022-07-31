@@ -14,7 +14,7 @@ Widget profileTile(IconData tileIcon, String title, void Function() nav) {
           bottomLeft: Radius.circular(4)),
     ),
     child: ListTile(
-      leading: Icon(tileIcon, color: Resources.color.cYellow),
+      leading: Icon(tileIcon, color: Resources.color.cBlack),
       title: Text(
         title,
         style: TextStyle(
