@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:monitraka/widgets/custom_plan_tiles.dart';
+import 'package:monitraka/widgets/text_field.dart';
 
-class customPlan extends StatefulWidget {
-  const customPlan({Key? key}) : super(key: key);
+class CustomPlan extends StatefulWidget {
+  static const id = '/CustomPlan';
+  const CustomPlan({Key? key}) : super(key: key);
 
   @override
-  State<customPlan> createState() => _customPlanState();
+  State<CustomPlan> createState() => _CustomPlanState();
 }
 
-class _customPlanState extends State<customPlan> {
+class _CustomPlanState extends State<CustomPlan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(249, 252, 250, 1),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -43,36 +44,31 @@ class _customPlanState extends State<customPlan> {
                           color: Resources.color.cGreen),
                     ),
                     Text(
-                      'Our custom plans are made to',
+                      'Our custom plans are made to\n'
+                      'suit your budgeting needs',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      'suit your budgetting needs',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: Resources.color.headerText),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Text(
-                'Select what you are budgetting for',
+                'Select what you are budgeting for',
                 style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Resources.color.cGreen),
               ),
+              const SizedBox(height: 20),
+              const SpecialField(hint: 'Search', icon: Icon(Icons.search)),
+              const SizedBox(height: 20),
               SizedBox(
-                height: 10,
-              ),
-              Expanded(child: planTiles()),
+                  height: MediaQuery.of(context).size.height * 0.63,
+                  child: const PlanTiles())
             ],
           ),
         ),

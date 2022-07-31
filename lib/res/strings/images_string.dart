@@ -28,4 +28,10 @@ class ImageStrings {
   String get redHeart => 'assets/images/icons/redheart.png';
   String get threeCircleDots => 'assets/images/icons/threecircledots.png';
   String get profilePic => 'assets/images/profilepic.png';
+  String get wallet => 'assets/images/wallet.png';
+  String get bitcoin => 'assets/images/bitcoin.png';
+  String get atmcard => 'assets/images/atm.png';
+  String get firstbank => 'assets/images/elephant.png';
+  String get padlock => 'assets/images/Vector.png';
+  String get fcmb => 'assets/images/fcmb.png';
 }

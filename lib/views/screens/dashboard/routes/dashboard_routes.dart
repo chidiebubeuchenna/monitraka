@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/home/dashboard.dart';
 
 class DashboardNav extends StatefulWidget {
+  static const id = '/DashBoardNav';
   const DashboardNav({Key? key}) : super(key: key);
 
   @override
@@ -17,14 +18,15 @@ class _DashboardNavState extends State<DashboardNav> {
       key: dashboardKey,
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
-            settings: settings,
-            builder: (BuildContext context) {
-              switch (settings.name) {
-                case '/':
-                  return const DashBoard();
-              }
-              return const DashBoard();
-            });
+          settings: settings,
+          builder: (BuildContext context) {
+            switch (settings.name) {
+              case DashBoard.id:
+                return const DashBoard();
+            }
+            return const DashBoard();
+          },
+        );
       },
     );
   }

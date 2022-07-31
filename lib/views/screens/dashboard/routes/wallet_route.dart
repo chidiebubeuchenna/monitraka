@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monitraka/views/screens/dashboard/wallet/wallet_screen.dart';
 
 class WalletNav extends StatefulWidget {
+  static const id = '/WalletNav';
   const WalletNav({Key? key}) : super(key: key);
 
   @override

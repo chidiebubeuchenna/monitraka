@@ -35,7 +35,17 @@ containerGen(String itemVal) {
 
 rowGen() {
   return Row(
-    children: rowItem,
+    children: [
+      SizedBox(
+        height: 25,
+        width: 280,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: rowItem,
+        ),
+      ),
+    ],
   );
 }
 
@@ -116,7 +126,7 @@ class _PrivateCommunityState extends State<PrivateCommunity> {
                     child: Container(
                       width: 374,
                       height: 52,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                         color: Resources.color.fillColor,
                         borderRadius: const BorderRadius.only(
@@ -297,30 +307,31 @@ class _BudgetInfoState extends State<BudgetInfo> {
             ),
             const SizedBox(height: 16),
             Button(
-                title: 'Done',
-                textColor: Resources.color.cWhite,
-                bgColor: Resources.color.cGreen,
-                btnAction: () {
-                  Navigator.pop(context);
-                  if (check1 == true) {
-                    setState(() {
-                      select = title1;
-                      rowItem.add(containerGen(select));
-                    });
-                  } else if (check2 == true) {
-                    setState(() {
-                      select = title2;
-                      rowItem.add(containerGen(select));
-                    });
-                  } else if (check3 == true) {
-                    setState(() {
-                      select = title3;
-                      rowItem.add(containerGen(select));
-                    });
-                  } else {
-                    return null;
-                  }
-                })
+              title: 'Done',
+              textColor: Resources.color.cWhite,
+              bgColor: Resources.color.cGreen,
+              btnAction: () {
+                Navigator.pop(context);
+                if (check1 == true) {
+                  setState(() {
+                    select = title1;
+                    rowItem.add(containerGen(select));
+                  });
+                } else if (check2 == true) {
+                  setState(() {
+                    select = title2;
+                    rowItem.add(containerGen(select));
+                  });
+                } else if (check3 == true) {
+                  setState(() {
+                    select = title3;
+                    rowItem.add(containerGen(select));
+                  });
+                } else {
+                  return select;
+                }
+              },
+            )
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:monitraka/models/user_model.dart';
 
 class UserViewModel {
-  User user = User(name: '', email: '', id: '', phoneNo: '');
+  User user = User(name: '', email: '', id: '', phoneNo: '', profilePic: null);
 
   // final userInfo = Provider.of(context);
   showProfile(var name, var id) {

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:monitraka/res/res.dart';
 import 'package:image_picker/image_picker.dart';
@@ -78,7 +77,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: image != null
                         ? Image.file(image!)
-                        : Icon(Icons.account_circle),
+                        : Image.asset(Resources.iStrings.profilePic),
                   ),
                   const SizedBox(width: 7),
                   Text(
@@ -91,7 +90,6 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                       try {
                         final img =
                             await _picker.pickImage(source: ImageSource.camera);
-                        if (image == null) return;
                         final imageTemp = File(img!.path);
                         setState(() {
                           image = imageTemp;
@@ -100,10 +98,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                         print('The error is: $e');
                       }
                     },
-                    icon: Icon(
-                      Icons.edit,
-                      color: Resources.color.rgText,
-                    ),
+                    icon: Icon(Icons.edit, color: Resources.color.rgText),
                   )
                 ],
               ),
@@ -117,11 +112,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: 'Tom Ogbu',
-                obscureText: false,
-                controller: _nameController,
-              ),
+              CommonText(hint: 'Tom Ogbu', controller: _nameController),
               const SizedBox(height: 16),
               //Email field
               Text(
@@ -132,11 +123,8 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: 'abcdxyz@gmail.com',
-                obscureText: false,
-                controller: _emailController,
-              ),
+              CommonText(
+                  hint: 'abcdxyz@gmail.com', controller: _emailController),
               const SizedBox(height: 16),
               //Phone field
               Text(
@@ -147,11 +135,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 15),
-              CommonTextField(
-                hint: '07046582213',
-                obscureText: false,
-                controller: _phoneController,
-              ),
+              CommonText(hint: '07046582213', controller: _phoneController),
               const SizedBox(height: 35),
               Button(
                   title: 'Done',

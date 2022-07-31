@@ -46,8 +46,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                 const SizedBox(height: 25),
                 Text('Password', style: titleStyle),
                 const SizedBox(height: 15),
-                CommonTextField(
-                  obscureText: true,
+                PasswordTextField(
                   hint: ' Password',
                   controller: _passwordController,
                   validator: (val) {
@@ -62,8 +61,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                 const SizedBox(height: 16),
                 Text('Confirm Password', style: titleStyle),
                 const SizedBox(height: 15),
-                CommonTextField(
-                  obscureText: true,
+                PasswordTextField(
                   hint: 'Re-type your password',
                   controller: _cPasswordController,
                   validator: (val) {
